@@ -1,0 +1,99 @@
+<view class="page" hidden="{{!showPage}}">
+  <form bindsubmit="save">
+    <view class="page__bd">
+      <view style="position:relative;background-color:#ffffff;padding:10px 0px 0px 10px">
+        <view style="float:left">
+          <!-- bindtap="chooseAvatar" -->
+          <image src="{{avatar}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;border-radius:50px"></image>
+          <view style="position:absolute;top:50%;left:{{cameraLeft}}px" hidden="true">
+            <image src="/img/camera.png" style="width:25px;height:20px"></image>
+          </view>
+        </view>
+        <view style="float:right;width:{{rightBoxWidth}}px">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input {{nameWarning==true?'weui-cell_warn':''}}">
+              <view class="weui-cell__bd">
+                <input class="weui-input" name="name" value="{{item.Name}}" data-sign="name" placeholder="请输入姓名(必填项)" confirm-type="next" bindconfirm="next" bindinput="inputInfo" disabled='true' />
+              </view>
+              <view class="weui-cell__ft" wx:if="{{nameWarning}}">
+                <icon type="warn" size="23" color="#E64340"></icon>
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_input {{phoneWarning==true?'weui-cell_warn':''}}">
+              <view class="weui-cell__bd">
+                <input class="weui-input" name="phone" value="{{item.Phone}}" data-sign="phone" placeholder="常用手机号码(必填项)" type="number" focus="{{phoneFocus}}" bindinput="inputInfo" />
+              </view>
+              <view class="weui-cell__ft" wx:if="{{phoneWarning}}">
+                <icon type="warn" size="23" color="#E64340"></icon>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view style="clear:both"></view>
+      </view>
+      <view class="weui-cells weui-cells_after-title" style="margin-top:10px">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">公司</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <label class="weui-input">深圳市升蓝物流有限公司</label>
+          </view>
+          <view class="weui-cell__ft" wx:if="{{userNameWarning}}">
+            <icon type="warn" size="23" color="#E64340"></icon>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input {{positionWarning==true?'weui-cell_warn':''}}">
+          <view class="weui-cell__hd">
+            <view class="weui-label">职位</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <input class="weui-input" value="{{item.Position}}" data-sign="position" name="position" placeholder="请输入职位(必填项)" bindinput="inputInfo" />
+          </view>
+          <view class="weui-cell__ft" wx:if="{{positionWarning}}">
+            <icon type="warn" size="23" color="#E64340"></icon>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">邮箱</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <input class="weui-input" value="{{item.Email}}" name="email" placeholder="请输入邮箱" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">所在城市</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <label class="weui-input">广东省深圳市</label>
+          </view>
+          <view class="weui-cell__ft" wx:if="{{userNameWarning}}">
+            <icon type="warn" size="23" color="#E64340"></icon>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">详细地址</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <input class="weui-input" name="address" value="{{address}}" placeholder="请输入详细地址" disabled="true" />
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <view class="weui-label">简介</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <textarea class="weui-textarea" name="brief" value="{{item.Brief}}" placeholder="请填写详细的个人信息，让别人更加了解你..." style="height: 3.3em" bindinput="inputSynopsis" maxlength="200" />
+            <view class="weui-textarea-counter">{{textCount}}/200</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-footer weui-footer_fixed-bottom" style="margin:0px 10px">
+      <button type="primary" form-type="submit">保存</button>
+    </view>
+  </form>
+</view>

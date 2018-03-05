@@ -1,0 +1,131 @@
+<view class="page" hidden="{{!showPage}}">
+  <view class="page__bd bg">
+    <view style="position: relative;text-align:center">
+      <view>
+        <!-- <image src="/img/bg.png" mode="scaleToFill" style="width:100%"></image> -->
+      </view>
+      <view>
+        <image src="{{item.AvatarUrl}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;border-radius:50px"></image>
+      </view>
+      <view class="name">
+        <text>{{item.Name}}</text>
+      </view>
+      <view style="width:100%;top:{{headImgWidth+40}}px">
+        <view style="color:white;font-size:13px;text-align:center;">
+          <text>{{item.Department}} | {{item.Position}}</text>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title info-box">
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/phone.png" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd linkinfo" hover-class="hover" style="font-size:18px" bindtap="call">{{item.Phone}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/email.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo">{{item.Email}}</view>
+        </view>
+        <view class="weui-cell" style="{{addressStyle}}">
+          <view class="weui-cell_hd">
+            <image src="/img/position.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd linkinfo" hover-class="hover" bindtap="openMap">{{address}}</view>
+          <view class="weui-cell_ft" style="height:40px" wx:if="{{showEdit}}" bindtap="edit">
+            <image src="/img/edit.png" style="width:40px;height:40px;text-align:right"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-btn-area" style="margin-top:100px" wx:if="{{showEdit}}">
+    <button class="weui-btn" type="primary" open-type="share">发名片</button>
+  </view>
+  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;" wx:if="{{!showEdit}}">
+    <view>
+      <view style="float:left;width:20%">
+        <image src="/img/logo.png" mode="aspectFit" style="width:70px;height:70px;margin:10px 10px"></image>
+      </view>
+      <view style="float:left;padding-left:20px;width:70%">
+        <view>
+          <text>深圳市升蓝物流有限公司</text>
+        </view>
+        <view class="weui-flex" style="margin-top:5px">
+          <view class="weui-flex__item">
+            <view class="placeholder">国际快递</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">成立11年</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">国际物流</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">国际空运</view>
+          </view>
+        </view>
+        <view class="weui-flex" style="margin-top:5px">
+          <view class="weui-flex__item">
+            <view class="placeholder">101-200人</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">中港专线</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">尼日利亚专线</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="float:left;width:100%">
+      <view class="weui-article">
+        <view class="weui-article__section">
+          <view class="weui-article__section">
+            <view class="weui-article__p">
+              _SL56_ [升蓝物流]成立于2002年，是一家专业的国际货代服务运营商，主要从事于全球国际快递、国际空运业务的发展和服务，致力于在国际货代行业中为客户提供安全可控、高性价比的国际物流解决方案。我司先后通过了ISO9001:2008质量管理体系认证和国家3A级企业认证，先后取得SL56升蓝的商标注册证及其它多项证书。
+            </view>
+            <view class="weui-article__p">
+              _SL56_本着专业和专注的精神，一直从事于国际快递空运服务并始终引领着行业的发展，以具备软件公司职能的IT部，有一批丰富经验及高学历的IT开发人员，为公司基础管理提供技术后盾，自主研发行业首创的SLOA国际快递系统填补行业空白，缔造国际快递代理OA系统鼻祖。
+            </view>
+            <view class="weui-article__p">
+              _SL56_现总部设于深圳机场，有广州、东莞、香港、汕头等分公司，通过整合香港、深圳、广州各机场的航空资源和与DHL、FedEx、UPS、TNT、EMS各种形式深层次的合作，一直服务于业内货代同行，合作货代商遍布全国，合作伙伴数千家，步居行业最大的服务商之列，在业内拥有极高的知名度。
+            </view>
+            <view class="weui-article__p">
+              _SL56_自有帐号，自有多台港车，香港自有仓库，自有打单系统，全系列产品全环节可控。备案快件出口经营单位，让客户独立完成快件出口申报！
+            </view>
+            <view class="weui-article__p">
+              _SL56_见证了国际快递/空运业务发展的十几年，在这十几年中， 我们不断地创新、完善，打造更优质的服务商品牌，追塑京东自营的品质（非京东卖家），全程可控，引领行业的新标杆，助力物流行业升级。至今我司拥有一百多名精英，在致力打造优质服务的同时，携手客户、共创共赢。
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view style="clear:both"></view>
+  </view>
+  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:20px;text-align:center" wx:if="{{!showEdit}}">
+    <image src="https://www.sl56.com/showimages/{{item.url}}" style="width:{{imageHeight}}px;height:{{imageHeight}}px;float:{{item.float}}" mode="aspectFill" wx:for="{{images}}" bindtap="preview" data-url="{{item.url}}"></image>
+    <view style="clear:both"></view>
+  </view>
+  <view class="weui-footer weui-footer_fixed-bottom" style="bottom:0;background-color:#ffffff;border-top:1rpx solid #d9d9d9" wx:if="{{!showEdit}}">
+    <view style="position:relative;">
+      <button class="share" style="float:left;padding:0px;margin:0px;" hover-class="shareHover" open-type="share">
+        <view style="position:relative;">
+          <view style="float:left;width:100%;height:25px">
+            <image src="/img/share.png" style="width:15px;height:15px"></image>
+          </view>
+          <view style="float:left;clear:right;width:100%;font-size:10px">分享名片</view>
+        </view>
+      </button>
+      <view style="float:right;padding:10px;">
+        <button type="primary" bindtap="saveContact" style="line-height:2.2;font-size:15px;width:120px">存入通讯录</button>
+      </view>
+    </view>
+  </view>
+</view>

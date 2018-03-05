@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/mycard/edit",
+    "pages/mycard/index",
+    "pages/index/index",
+    "pages/home/index",
+    "pages/map/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#014fa3",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "#ffffff"
+  }
+}
