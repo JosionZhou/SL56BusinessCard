@@ -30,6 +30,20 @@
           </view>
           <view class="weui-cell__bd normalinfo">{{item.Email}}</view>
         </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/qq.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo">{{item.QQ}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/wechat.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo">{{item.Wechat}}</view>
+        </view>
         <view class="weui-cell" style="{{addressStyle}}">
           <view class="weui-cell_hd">
             <image src="/img/position.png" mode="aspectFit" style="width:20px;height:20px">
@@ -50,7 +64,7 @@
   <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;" wx:if="{{!showEdit}}">
     <view>
       <view style="float:left;width:20%">
-        <image src="/img/logo.png" mode="aspectFit" style="width:70px;height:70px;margin:10px 10px"></image>
+        <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px"></image>
       </view>
       <view style="float:left;padding-left:20px;width:70%">
         <view>
@@ -61,7 +75,7 @@
             <view class="placeholder">国际快递</view>
           </view>
           <view class="weui-flex__item">
-            <view class="placeholder">成立11年</view>
+            <view class="placeholder">成立15年</view>
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">国际物流</view>
@@ -75,10 +89,19 @@
             <view class="placeholder">101-200人</view>
           </view>
           <view class="weui-flex__item">
-            <view class="placeholder">中港专线</view>
+            <view class="placeholder">亚马逊FBA</view>
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">尼日利亚专线</view>
+          </view>
+        </view>
+
+        <view class="weui-flex" style="margin-top:5px">
+          <view class="weui-flex__item">
+            <view class="placeholder">ISO9001认证企业</view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">国家AAA级物流企业</view>
           </view>
         </view>
       </view>

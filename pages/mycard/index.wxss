@@ -20,6 +20,9 @@
   color:white;
   /* font-weight: bold */
 }
+.weui-cell{
+  padding: 5px 15px
+}
 .weui-cells::before {
   border-top: 0px
 }

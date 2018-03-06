@@ -176,6 +176,8 @@ Page({
     obj.Email = e.detail.value.email;
     obj.Brief = e.detail.value.brief;
     obj.AvatarUrl = this.data.avatar;
+    obj.QQ = e.detail.value.qq;
+    obj.Wechat = e.detail.value.wechat;
     var data = {
       url: app.globalData.serverAddress + "/BusinessCard/Save",
       data: obj,

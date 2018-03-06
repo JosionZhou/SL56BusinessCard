@@ -64,6 +64,22 @@
         </view>
         <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
+            <view class="weui-label">QQ</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <input class="weui-input" value="{{item.QQ}}" name="qq" placeholder="请输入QQ" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">微信</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <input class="weui-input" value="{{item.Wechat}}" name="wechat" placeholder="请输入微信" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
             <view class="weui-label">所在城市</view>
           </view>
           <view class="weui-cell__bd ">
