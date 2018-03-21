@@ -184,8 +184,8 @@ Page({
       success: function (res) {
         wx.hideLoading();
         if (res) {
-          wx.navigateBack({
-            url: "index",
+          wx.redirectTo({
+            url: "/pages/mycard/index",
           });
         } else {
           wx.showModal({

@@ -200,5 +200,38 @@ Page({
     wx.navigateTo({
       url: 'edit',
     })
+  },
+  unBind: function () {
+    wx.showLoading({
+      title: '请稍后',
+    });
+    var data = {
+      url: app.globalData.serverAddress + "/BusinessCard/Unbind?id=" + app.globalData.id,
+      success: function (res) {
+        wx.hideLoading();
+        if (res) {
+          wx.removeStorageSync("ASPSESSID");//移除保存的会话id
+          wx.removeStorageSync("ASPAUTH");//移除保存的凭证
+          wx.redirectTo({
+            url: '/pages/login/index',
+          })
+        } else {
+          wx.showModal({
+            title: "解绑失败",
+            showCancel: false
+          })
+        }
+
+      },
+      fail: function (res) {
+        wx.hideLoading();
+        wx.showModal({
+          title: "操作异常",
+          content: res,
+          showCancel: false
+        })
+      }
+    };
+    app.NetRequest(data);
   }
 })

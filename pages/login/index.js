@@ -10,8 +10,8 @@ Page({
     showErrorTips: false,
     uerNameWarning: false,
     passwordWarning: false,
-    userName:"",
-    password:""
+    userName: "",
+    password: ""
   },
 
   /**
@@ -99,12 +99,12 @@ Page({
       }
     }
   },
-  inputUserName:function(e){
+  inputUserName: function (e) {
     this.setData({
       userName: e.detail.value
     });
   },
-  inputPassword:function(e){
+  inputPassword: function (e) {
     this.setData({
       password: e.detail.value
     });
