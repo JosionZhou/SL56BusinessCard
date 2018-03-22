@@ -60,9 +60,7 @@
 
   <view class="weui-btn-area" style="margin-top:100px" wx:if="{{showEdit}}">
     <button class="weui-btn" type="primary" open-type="share">发名片</button>
-      <view class="weui-cell__ft">
-        <view bindtap="unBind" class="weui-agree__link" style="text-decoration:underline;margin-right:5px">切换账号</view>
-      </view>
+    <button class="weui-btn" type="primary" bindtap="unBind">切换账号</button>
   </view>
   <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;" wx:if="{{!showEdit}}">
     <view>
@@ -136,7 +134,7 @@
     <view style="clear:both"></view>
   </view>
   <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:20px;text-align:center" wx:if="{{!showEdit}}">
-    <image src="https://www.sl56.com/showimages/{{item.url}}" style="width:{{imageHeight}}px;height:{{imageHeight}}px;float:{{item.float}}" mode="aspectFill" wx:for="{{images}}" bindtap="preview" data-url="{{item.url}}"></image>
+    <image src="/img/{{item.url}}.png" style="width:{{imageHeight}}px;height:{{imageHeight}}px;float:{{item.float}}" mode="aspectFill" wx:for="{{images}}" bindtap="preview" data-url="{{item.url}}.jpg"></image>
     <view style="clear:both"></view>
   </view>
   <view class="weui-footer weui-footer_fixed-bottom" style="bottom:0;background-color:#ffffff;border-top:1rpx solid #d9d9d9" wx:if="{{!showEdit}}">

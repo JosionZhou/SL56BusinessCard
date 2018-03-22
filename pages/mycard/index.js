@@ -32,7 +32,7 @@ Page({
     });
     var images = new Array();
     for (var i = 0; i <= 8; i++) {
-      var imgUrl = "show0" + i + ".jpg";
+      var imgUrl = "show0" + i;
       var float = "left";
       if (i > 0 && (i + 1) % 2 == 0) {
         float = "right";
@@ -189,7 +189,7 @@ Page({
     var images = this.data.images;
     var urls = new Array();
     for (var i = 0; i < images.length; i++) {
-      urls.push("https://www.sl56.com/showimages/" + images[i].url)
+      urls.push("https://www.sl56.com/showimages/" + images[i].url+".jpg")
     }
     wx.previewImage({
       urls: urls,
@@ -202,36 +202,44 @@ Page({
     })
   },
   unBind: function () {
-    wx.showLoading({
-      title: '请稍后',
-    });
-    var data = {
-      url: app.globalData.serverAddress + "/BusinessCard/Unbind?id=" + app.globalData.id,
-      success: function (res) {
-        wx.hideLoading();
-        if (res) {
-          wx.removeStorageSync("ASPSESSID");//移除保存的会话id
-          wx.removeStorageSync("ASPAUTH");//移除保存的凭证
-          wx.redirectTo({
-            url: '/pages/login/index',
-          })
-        } else {
-          wx.showModal({
-            title: "解绑失败",
-            showCancel: false
-          })
-        }
+    wx.showModal({
+      title: '提示',
+      content: '是否切换账号',
+      success:function(res){
+        if (res.confirm) {
+          wx.showLoading({
+            title: '请稍后',
+          });
+          var data = {
+            url: app.globalData.serverAddress + "/BusinessCard/Unbind?id=" + app.globalData.id,
+            success: function (res) {
+              wx.hideLoading();
+              if (res) {
+                wx.removeStorageSync("ASPSESSID");//移除保存的会话id
+                wx.removeStorageSync("ASPAUTH");//移除保存的凭证
+                wx.redirectTo({
+                  url: '/pages/login/index',
+                })
+              } else {
+                wx.showModal({
+                  title: "解绑失败",
+                  showCancel: false
+                })
+              }
 
-      },
-      fail: function (res) {
-        wx.hideLoading();
-        wx.showModal({
-          title: "操作异常",
-          content: res,
-          showCancel: false
-        })
+            },
+            fail: function (res) {
+              wx.hideLoading();
+              wx.showModal({
+                title: "操作异常",
+                content: res,
+                showCancel: false
+              })
+            }
+          };
+          app.NetRequest(data);
+        }
       }
-    };
-    app.NetRequest(data);
+    });
   }
 })
