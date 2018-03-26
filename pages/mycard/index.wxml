@@ -107,34 +107,161 @@
         </view>
       </view>
     </view>
+    <image src="https://www.sl56.com/showimages/p1.jpg" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="1"></image>
     <view style="float:left;width:100%">
       <view class="weui-article">
         <view class="weui-article__section">
           <view class="weui-article__section">
             <view class="weui-article__p">
-              _SL56_ [升蓝物流]成立于2002年，是一家专业的国际货代服务运营商，主要从事于全球国际快递、国际空运业务的发展和服务，致力于在国际货代行业中为客户提供安全可控、高性价比的国际物流解决方案。我司先后通过了ISO9001:2008质量管理体系认证和国家AAA级企业认证，先后取得SL56升蓝的商标注册证及其它多项证书。
+              &nbsp;SL56升蓝成立于2002年，是一家专业的国际货代服务运营商，主要聚焦于全球国际快递及空运业务的发展和服务，致力于在国际货代行业中为客户提供安全可控、高性价比的国际物流解决方案。先后通过了ISO9001:2015质量管理体系认证和国家商务部中小企业AAA级企业信用荣誉评级，获得了国家AAA级物流企业资质。
             </view>
             <view class="weui-article__p">
-              _SL56_本着专业和专注的精神，一直从事于国际快递空运服务并始终引领着行业的发展，以具备软件公司职能的IT部，有一批丰富经验及高学历的IT开发人员，为公司基础管理提供技术后盾，自主研发行业首创的SLOA国际快递系统填补行业空白，缔造国际快递代理OA系统鼻祖。
+              SL56升蓝定位于专注和专业的精神，一直从事于国际快递、国际空运服务近十几年并始终引领着行业的发展，公司基础设施建设一直是公司重视领域，十多年来重点投入的IT技术部不断升级壮大，为公司基础管理提供时代性与时俱进的技术后盾，自主研发行业首创的SLOA国际快递货代系统填补行业空白，缔造国际快递代理OA系统鼻祖。
             </view>
             <view class="weui-article__p">
-              _SL56_现总部设于深圳机场，有广州、东莞、香港、汕头等分公司，通过整合香港、深圳、广州各机场的航空资源和与DHL、FedEx、UPS、TNT、EMS各种形式深层次的合作，一直服务于业内货代同行，合作货代商遍布全国，合作伙伴数千家，步居行业最大的服务商之列，在业内拥有极高的知名度。
+              SL56升蓝现总部设于深圳机场，有广州、东莞、香港、汕头等分公司，通过整合香港、深圳、广州各机场的航空资源和与DHL、FedEx、UPS、TNT、EMS各种形式深层次的合作，一直服务于业内货代同行，合作货代商遍布全国，合作伙伴数千家，步居行业最大的服务商之列，在业内拥有极高的知名度。
             </view>
             <view class="weui-article__p">
-              _SL56_自有帐号，自有多台港车，香港自有仓库，自有打单系统，全系列产品全环节可控。备案快件出口经营单位，让客户独立完成快件出口申报！
+              SL56升蓝自有帐号，自有多台港车，香港自有仓库，自有打单系统，全系列产品全环节可控。备案快件出口经营单位，让客户独立完成快件出口申报！
             </view>
             <view class="weui-article__p">
-              _SL56_见证了国际快递/空运业务发展的十几年，在这十几年中， 我们不断地创新、完善，打造更优质的服务商品牌，追塑京东自营的品质（非京东卖家），全程可控，引领行业的新标杆，助力物流行业升级。至今我司拥有一百多名精英，在致力打造优质服务的同时，携手客户、共创共赢。
+              SL56升蓝见证了国际快递/空运业务发展的十数年，在这十数年中，公司始终遵循按社会规则办事，公司管理层和员工上下互相督导，自检所做的一切是否违背了社会规则， 我们不断地创新、完善，打造更优质的服务商品牌，追塑京东自营的品质（非京东卖家），全程可控，引领行业的新标杆，助力物流行业升级。至今我司拥有一百多名精英，在致力打造优质服务的同时，携手客户、共创共赢。
+            </view>
+            <view class="weui-article__p">
+            SL56升蓝一直倡导关爱文化，在公司内部举办各种活动，如定期举办员工生日PARTY，庆祝三八节盛宴，优秀员工出国旅游，另对有困难的员工发起关爱行动，互帮互助等，2016~2017年升蓝全员参与捐建了河南观音堂中心小学，2018年SL56升蓝走进敬老院，“扬家风重孝义，敬老善亲庆三八”，得到业界广泛关注及好评！
             </view>
           </view>
         </view>
       </view>
     </view>
+    <image src="https://www.sl56.com/showimages/p2.jpg" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" data-index="2" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:22px">
+    升蓝荣誉及资质！
+    </view>
+    <view style="color:red;text-align:center;font-size:15px;margin-top:10px">
+    中国标准货代资格企业、具世界500强企业投标资质
+    </view>
+    <image src="https://www.sl56.com/showimages/p3.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="3" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p4.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="4" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    国家商务部中小企业AAA级企业信用荣誉评级
+    </view>
+    <image src="https://www.sl56.com/showimages/p5.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="5" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    获得国家AAA级物流企业资质
+    </view>
+    <image src="https://www.sl56.com/showimages/p6.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="6" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    2011年获得国际快递许可证
+    </view>
+    <image src="https://www.sl56.com/showimages/p7.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="7" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    2010年获得国内快递许可证
+    </view>
+    <image src="https://www.sl56.com/showimages/p8.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="8" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    ISO-9001:2008质量管理体系认证
+    </view>
+    <image src="https://www.sl56.com/showimages/p9.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix"  data-index="9" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    2013年获得一类航空货运销售资格
+    </view>
+    <image src="https://www.sl56.com/showimages/p10.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="10" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    道路运输许可证
+    </view>
+    <image src="https://www.sl56.com/showimages/p11.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="11" bindtap="preview"></image>
+    <view style="color:red;text-align:center;font-size:15px">
+    SL56商标注册证
+    </view>
+    <image src="https://www.sl56.com/showimages/p12.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="12" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p13.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="13" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p14.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="14" bindtap="preview"></image>
+    <view style="font-size:15px;font-weight:bold;margin-left:20px;">
+    升蓝发展历程：
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2017年9月获得国家商务部中小企业AAA级企业信用荣誉评级
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2017年3月参与援建河南观音堂中心小学。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2017年1月通过《ISO9001:2008质量管理体系认证》。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2017年1月获得国家AAA级物流企业资质。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2014年5月公司全新配置业内领先高清X光安检机。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2013年2月获得华南区DHL代理资格。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2012年3月获得中国民用航空运输销售代理业务国内航线《资格认可证书》。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2012年1月获取华商书院深圳校友会会员单位。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2012年1月取得中国航空运输协会会员证书。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2011年10月取得国际快递运输许可证。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2011年1月取得道路运输经营许可证。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2010年12月取得中国民用航空运输销售代理业务国际航线《资格认可证书》。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2010年12月取得国内快递运输许可证。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2010年11月注册成立SL56义乌公司。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2010年3月取得SL56的商标注册证书。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2009年8月取得深圳工商联热心社会公益会员单位称誉。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2009年3月取得深圳TNT一级代理资格。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2007年8月成立香港分公司,强有力保障出货渠道优质性。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2008年7月注册成立SL56潮州公司。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2007年6月注册成立SL56东莞公司。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2007年2月注册成立SL56汕头公司。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2007年1月注册成立深圳市升蓝物流有限公司。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2006年6月架设IP光纤对公司的信息化系统更强有力的支持。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2006年5月深圳公司在新址成立总部,拥有面积2000平方米,下设多个职能部门,提高工作效益,确保货物正常流通。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2006年1月我司整合各优势渠道,开通SL专线，为品牌服务锦上添花。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2005年6月开始沿用SL56企业VI体系,加强品牌营造。
+    </view>
+    <view style="font-size:15px;margin-left:20px;margin-top:20px">
+    ◎2005年5月成为短信网址的第一批用户,融入短信平台的SLOA进一步提升SL56服务质量。
+    </view>
 
-    <view style="clear:both"></view>
-  </view>
-  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:20px;text-align:center" wx:if="{{!showEdit}}">
-    <image src="/img/{{item.url}}.png" style="width:{{imageHeight}}px;height:{{imageHeight}}px;float:{{item.float}}" mode="aspectFill" wx:for="{{images}}" bindtap="preview" data-url="{{item.url}}.jpg"></image>
     <view style="clear:both"></view>
   </view>
   <view class="weui-footer weui-footer_fixed-bottom" style="bottom:0;background-color:#ffffff;border-top:1rpx solid #d9d9d9" wx:if="{{!showEdit}}">

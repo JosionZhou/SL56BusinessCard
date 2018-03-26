@@ -16,7 +16,8 @@ Page({
     addressStyle: "",
     showEdit: false,
     showPage:false,
-    id:null
+    id:null,
+    width:0
   },
 
   /**
@@ -28,18 +29,14 @@ Page({
     })
     this.setData({
       imageHeight: parseInt(wx.getSystemInfoSync().windowWidth * 0.4),
-      headImgWidth: parseInt(wx.getSystemInfoSync().windowWidth * 0.2)
+      headImgWidth: parseInt(wx.getSystemInfoSync().windowWidth * 0.2),
+      width: wx.getSystemInfoSync().windowWidth
     });
     var images = new Array();
-    for (var i = 0; i <= 8; i++) {
-      var imgUrl = "show0" + i;
-      var float = "left";
-      if (i > 0 && (i + 1) % 2 == 0) {
-        float = "right";
-      }
+    for (var i = 0; i <= 13; i++) {
+      var imgUrl = "p" + (i+1)+".jpg";
       var imgObj = {
-        url: imgUrl,
-        float: float
+        url: imgUrl
       }
       images.push(imgObj);
     }
@@ -185,15 +182,16 @@ Page({
     })
   },
   preview: function (e) {
-    var current = e.currentTarget.dataset.url;
+    var current = e.currentTarget.dataset.index;
+    console.log(current)
     var images = this.data.images;
     var urls = new Array();
     for (var i = 0; i < images.length; i++) {
-      urls.push("https://www.sl56.com/showimages/" + images[i].url+".jpg")
+      urls.push("https://www.sl56.com/showimages/" + images[i].url)
     }
     wx.previewImage({
       urls: urls,
-      current: "https://www.sl56.com/showimages/" + current
+      current: "https://www.sl56.com/showimages/p" + current+".jpg"
     })
   },
   edit: function () {
