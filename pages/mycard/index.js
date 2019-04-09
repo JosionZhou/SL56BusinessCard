@@ -33,8 +33,9 @@ Page({
       width: wx.getSystemInfoSync().windowWidth
     });
     var images = new Array();
-    for (var i = 0; i <= 13; i++) {
-      var imgUrl = "p" + (i+1)+".jpg";
+    var picIndexs = new Array(1,2,3,4,15,16,17,18,19,5,6,7,8,9,10,11,12,13,14);
+    for (var i = 0; i < picIndexs.length; i++) {
+      var imgUrl = "p" + (picIndexs[i])+".jpg";
       var imgObj = {
         url: imgUrl
       }
@@ -191,7 +192,7 @@ Page({
     }
     wx.previewImage({
       urls: urls,
-      current: "https://www.sl56.com/showimages/p" + current+".jpg"
+      current: "https://www.sl56.com/showimages/" + images[current-1].url
     })
   },
   edit: function () {

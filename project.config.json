@@ -12,6 +12,8 @@
 	"appid": "wx95c7f9512b021b24",
 	"projectname": "SL56BusinessCard-beta",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
