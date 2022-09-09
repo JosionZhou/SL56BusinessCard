@@ -107,8 +107,8 @@
         </view>
       </view>
     </view>
-    <image src="https://www.sl56.com/showimages/p1.jpg" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="1"></image>
-    <image src="https://www.sl56.com/showimages/p0.jpg" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="2"></image>
+    <image src="https://www.sl56.com/showimages/p1.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="1"></image>
+    <image src="https://www.sl56.com/showimages/p0.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="2"></image>
     <view style="float:left;width:100%">
       <view class="weui-article">
         <view class="weui-article__section">
@@ -125,51 +125,51 @@
         </view>
       </view>
     </view>
-    <image src="https://www.sl56.com/showimages/p2.jpg" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" data-index="3" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p2.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" data-index="3" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:22px">
     升蓝荣誉及资质！
     </view>
     <view style="color:red;text-align:center;font-size:15px;margin-top:10px">
     中国标准货代资格企业、具世界500强企业投标资质
     </view>
-    <image src="https://www.sl56.com/showimages/p5.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="4" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p5.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="4" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     获得国家4A级物流企业资质
     </view>
-    <image src="https://www.sl56.com/showimages/p15.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="5" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p15.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="5" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     获得国家高新技术企业
     </view>
-    <image src="https://www.sl56.com/showimages/p3.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="6" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p3.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="6" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     获得深圳知名品牌企业
     </view>
-    <image src="https://www.sl56.com/showimages/p7.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="7" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p7.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="7" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     获得国际快递业务经营许可证
     </view>
-    <image src="https://www.sl56.com/showimages/p16.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="8" bindtap="preview"></image>
-    <image src="https://www.sl56.com/showimages/p17.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="9" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p16.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="8" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p17.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="9" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     宝安区物流寄递禁毒管控示范企业
     </view>
-    <image src="https://www.sl56.com/showimages/p18.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="10" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p18.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="10" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     获得国家知识产权管理体系贯标认证
     </view>
-    <image src="https://www.sl56.com/showimages/p19.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="11" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p19.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="11" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     荣获广东省“守合同重信用”企业
     </view>
-    <image src="https://www.sl56.com/showimages/p8.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="12" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p8.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="12" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     ISO-9001:2008质量管理体系认证
     </view>
-    <image src="https://www.sl56.com/showimages/p10.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="13" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p10.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="13" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px">
     道路运输许可证
     </view>
-    <image src="https://www.sl56.com/showimages/p11.jpg" style="width:{{width-40}}px;padding-left:15px;margin-top:10px;" mode="widthFix" data-index="14" bindtap="preview"></image>
+    <image src="https://www.sl56.com/showimages/p11.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px;" mode="widthFix" data-index="14" bindtap="preview"></image>
     <view style="color:red;text-align:center;font-size:15px;margin-bottom: 50px;">
     SL56商标注册证
     </view>
