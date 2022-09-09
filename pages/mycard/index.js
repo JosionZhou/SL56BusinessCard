@@ -33,7 +33,7 @@ Page({
       width: wx.getSystemInfoSync().windowWidth
     });
     var images = new Array();
-    var picIndexs = new Array(1,2,3,4,15,16,17,18,19,5,6,7,8,9,10,11,12,13,14);
+    var picIndexs = new Array(1,0,2,5,15,3,7,16,17,18,19,8,10,11);
     for (var i = 0; i < picIndexs.length; i++) {
       var imgUrl = "p" + (picIndexs[i])+".jpg";
       var imgObj = {
