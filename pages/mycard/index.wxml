@@ -76,7 +76,7 @@
             <view class="placeholder">国际快递</view>
           </view>
           <view class="weui-flex__item">
-            <view class="placeholder">成立15年</view>
+            <view class="placeholder">成立{{establishYears}}年</view>
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">国际物流</view>
@@ -102,7 +102,7 @@
             <view class="placeholder">ISO9001认证企业</view>
           </view>
           <view class="weui-flex__item">
-            <view class="placeholder">国家AAA级物流企业</view>
+            <view class="placeholder">国家AAAA级物流企业</view>
           </view>
         </view>
       </view>

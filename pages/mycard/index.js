@@ -37,7 +37,8 @@ Page({
     showPage:false,
     id:null,
     width:0,
-    timestamp:new Date().getTime()
+    timestamp:new Date().getTime(),
+    establishYears:new Date().getFullYear()-2012
   },
 
   /**
