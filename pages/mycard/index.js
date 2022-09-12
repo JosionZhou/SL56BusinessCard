@@ -87,6 +87,20 @@ Page({
         main.setData({
           showPage: true
         });
+      },
+      fail:function(res){
+        wx.hideLoading();
+        console.log("加载异常：",res);
+        wx.showModal({
+          showCancel:false,
+          title:"获取信息异常",
+          content:"异常信息："+res.data.Message+res.data.MessageDetail,
+          success:function(res){
+            if(res.confirm){
+              wx.exitMiniProgram();
+            }
+          }
+        });
       }
     };
     app.NetRequest(data);
