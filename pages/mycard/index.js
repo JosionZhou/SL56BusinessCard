@@ -16,11 +16,11 @@ Page({
     images: [],
     addressStyle: "",
     showEdit: false,
-    showPage:false,
-    id:null,
-    width:0,
-    timestamp:new Date().getTime(),
-    establishYears:new Date().getFullYear()-2002
+    showPage: false,
+    id: null,
+    width: 0,
+    timestamp: new Date().getTime(),
+    establishYears: new Date().getFullYear() - 2002
   },
 
   /**
@@ -36,9 +36,9 @@ Page({
       width: wx.getSystemInfoSync().windowWidth
     });
     var images = new Array();
-    var picIndexs = new Array(1,0,2,5,15,3,7,16,17,18,19,8,10,11);
+    var picIndexs = new Array(1, 0, 2, 5, 15, 3, 7, 16, 17, 18, 19, 8, 10, 11);
     for (var i = 0; i < picIndexs.length; i++) {
-      var imgUrl = "p" + (picIndexs[i])+".jpg";
+      var imgUrl = "p" + (picIndexs[i]) + ".jpg";
       var imgObj = {
         url: imgUrl
       }
@@ -47,17 +47,24 @@ Page({
     this.setData({
       images: images
     });
-    if(options.id!=null){
-      this.data.id=options.id;
-    }else{
-      this.data.id=app.globalData.id;
+    if (options.id != null) {
+      this.setData({
+        id:options.id,
+        showEdit:false
+      });
+    } else {
+      this.setData({
+        id:app.globalData.id,
+        showEdit:true
+      });
     }
     // var id = options.id;
     // this.getCardInfo(id);
+    console.log("loadMethod.id", options);
   },
-  getCardInfo:function(){
-    if(this.data.showEdit){
-      this.data.id=app.globalData.id;
+  getCardInfo: function () {
+    if (this.data.showEdit) {
+      this.data.id = app.globalData.id;
     }
     var main = this;
     var data = {
@@ -65,8 +72,8 @@ Page({
       method: "GET",
       success: function (res) {
         wx.hideLoading();
-        if(res.Email==null || res.Email.trim().length==0){
-          res.Email="暂无邮箱";
+        if (res.Email == null || res.Email.trim().length == 0) {
+          res.Email = "暂无邮箱";
         }
         main.setData({
           item: res
@@ -88,15 +95,15 @@ Page({
           showPage: true
         });
       },
-      fail:function(res){
+      fail: function (res) {
         wx.hideLoading();
-        console.log("加载异常：",res);
+        console.log("加载异常：", res);
         wx.showModal({
-          showCancel:false,
-          title:"获取信息异常",
-          content:"异常信息："+res.data.Message+res.data.MessageDetail,
-          success:function(res){
-            if(res.confirm){
+          showCancel: false,
+          title: "获取信息异常",
+          content: "异常信息：" + res.data.Message + res.data.MessageDetail,
+          success: function (res) {
+            if (res.confirm) {
               wx.exitMiniProgram();
             }
           }
@@ -116,26 +123,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  updateManager.onCheckForUpdate(function (res) {
-    // 请求完新版本信息的回调
-    console.log(res.hasUpdate)
-  });
-  updateManager.onUpdateReady(function () {
-    wx.showModal({
-      title: '更新提示',
-      content: '新版本已经准备好，是否重启应用？',
-      success: function (res) {
-        if (res.confirm) {
-          // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
-          updateManager.applyUpdate()
-        }
-      }
-    })
-  });
-    this.setData({
-      showEdit: app.globalData.showEdit
+    updateManager.onCheckForUpdate(function (res) {
+      // 请求完新版本信息的回调
+      console.log(res.hasUpdate)
     });
-    if(app.globalData.showEdit){
+    updateManager.onUpdateReady(function () {
+      wx.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success: function (res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
+        }
+      })
+    });
+    if (this.data.showEdit) {
       this.setData({
         addressStyle: "padding-right:0px;padding-bottom:0px"
       });
@@ -180,7 +184,7 @@ Page({
    */
   onShareAppMessage: function (res) {
     return {
-      title: "升蓝物流-"+this.data.item.Name + "的名片，望惠存",
+      title: "升蓝物流-" + this.data.item.Name + "的名片，望惠存",
       path: '/pages/mycard/index?id=' + this.data.item.Id,
       success: function (res) {
         // 转发成功
@@ -212,7 +216,7 @@ Page({
       organization: this.data.companyName,
       title: this.data.item.Position,
       url: "https://www.sl56.com",
-      email:this.data.item.Email
+      email: this.data.item.Email
     })
   },
   preview: function (e) {
@@ -225,7 +229,7 @@ Page({
     }
     wx.previewImage({
       urls: urls,
-      current: "https://www.sl56.com/showimages/" + images[current-1].url
+      current: "https://www.sl56.com/showimages/" + images[current - 1].url
     })
   },
   edit: function () {
@@ -237,7 +241,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '是否切换账号',
-      success:function(res){
+      success: function (res) {
         if (res.confirm) {
           wx.showLoading({
             title: '请稍后',
@@ -247,8 +251,8 @@ Page({
             success: function (res) {
               wx.hideLoading();
               if (res) {
-                wx.removeStorageSync("ASPSESSID");//移除保存的会话id
-                wx.removeStorageSync("ASPAUTH");//移除保存的凭证
+                wx.removeStorageSync("ASPSESSID"); //移除保存的会话id
+                wx.removeStorageSync("ASPAUTH"); //移除保存的凭证
                 wx.redirectTo({
                   url: '/pages/login/index',
                 })
