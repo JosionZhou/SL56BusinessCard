@@ -5,7 +5,8 @@
     "pages/mycard/index",
     "pages/index/index",
     "pages/home/index",
-    "pages/map/index"
+    "pages/map/index",
+    "pages/mycard/company-profile/edit"
   ],
   "window": {
     "backgroundTextStyle": "light",

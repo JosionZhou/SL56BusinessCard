@@ -61,8 +61,9 @@
   <view class="weui-btn-area" style="margin-top:100px" wx:if="{{showEdit}}">
     <button class="weui-btn" type="primary" open-type="share">发名片</button>
     <button class="weui-btn" type="primary" bindtap="unBind">切换账号</button>
+    <button class="weui-btn" type="primary" bindtap="editProfile" wx:if="{{isCanEditCompanyProfile}}">编辑公司简介</button>
   </view>
-  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;" wx:if="{{!showEdit}}">
+  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;"  wx:if="{{!showEdit}}">
     <view>
       <view style="float:left;width:20%">
         <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px"></image>
@@ -107,74 +108,9 @@
         </view>
       </view>
     </view>
-    <image src="https://www.sl56.com/showimages/p1.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="1"></image>
-    <image src="https://www.sl56.com/showimages/p0.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" bindtap="preview" data-index="2"></image>
-    <view style="float:left;width:100%">
-      <view class="weui-article">
-        <view class="weui-article__section">
-          <view class="weui-article__section">
-            <view class="weui-article__p">
-              <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;</text>
-              升蓝物流SL56始于2002，拥有美国，欧盟等全球商标，业务遍及全球，现总部设于深圳机场，设有广州、香港、汕头等多家分公司，主要聚焦于国际快递，国际空运，全球进口业务，一般贸易报关及加工贸易报关的发展和服务，致力于为客户提供安全可控、高性价比的国际物流解决方案。公司先后荣获“AAAA级物流企业”“国家高新技术企业”“深圳知名品牌”等多项荣誉与权威认证，也是深圳市航空业协会副会长单位。
-            </view>
-            <view class="weui-article__p">
-              <text decode="true">&nbsp;&nbsp;&nbsp;&nbsp;</text>
-              升蓝物流SL56拥有专业的报关业务团队，自研开发清关系统，保证清关的效率及准确率。本着专业和专注的精神，始终引领着行业的发展，公司IT部自2004年起研发行业首创的升蓝国际快递管理平台，为客户提供24小时在线服务，极大地提高了公司的运营效率，属于细分物流行业首创，先后取得相关领域内30多项著作权和专利技术证书，并在2019年通过国家两化融合贯标体系认证。
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-    <image src="https://www.sl56.com/showimages/p2.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;" mode="widthFix" data-index="3" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:22px">
-    升蓝荣誉及资质！
-    </view>
-    <view style="color:red;text-align:center;font-size:15px;margin-top:10px">
-    中国标准货代资格企业、具世界500强企业投标资质
-    </view>
-    <image src="https://www.sl56.com/showimages/p5.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="4" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    获得国家4A级物流企业资质
-    </view>
-    <image src="https://www.sl56.com/showimages/p15.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="5" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    获得国家高新技术企业
-    </view>
-    <image src="https://www.sl56.com/showimages/p3.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="6" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    获得深圳知名品牌企业
-    </view>
-    <image src="https://www.sl56.com/showimages/p7.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="7" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    获得国际快递业务经营许可证
-    </view>
-    <image src="https://www.sl56.com/showimages/p16.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="8" bindtap="preview"></image>
-    <image src="https://www.sl56.com/showimages/p17.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="9" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    宝安区物流寄递禁毒管控示范企业
-    </view>
-    <image src="https://www.sl56.com/showimages/p18.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="10" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    获得国家知识产权管理体系贯标认证
-    </view>
-    <image src="https://www.sl56.com/showimages/p19.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="11" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    荣获广东省“守合同重信用”企业
-    </view>
-    <image src="https://www.sl56.com/showimages/p8.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="12" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    ISO-9001:2008质量管理体系认证
-    </view>
-    <image src="https://www.sl56.com/showimages/p10.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px" mode="widthFix" data-index="13" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px">
-    道路运输许可证
-    </view>
-    <image src="https://www.sl56.com/showimages/p11.jpg?v={{timestamp}}" style="width:{{width-40}}px;padding-left:15px;margin-top:10px;" mode="widthFix" data-index="14" bindtap="preview"></image>
-    <view style="color:red;text-align:center;font-size:15px;margin-bottom: 50px;">
-    SL56商标注册证
-    </view>
-
     <view style="clear:both"></view>
+    <editor id="editor" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
+    </editor>
   </view>
   <view class="weui-footer weui-footer_fixed-bottom" style="bottom:0;background-color:#ffffff;border-top:1rpx solid #d9d9d9" wx:if="{{!showEdit}}">
     <view style="position:relative;">

@@ -1,0 +1,78 @@
+@import "../../../utils/iconfont.wxss";
+.btn-submit{
+  border-radius:35px;
+}
+button[type="primary"] {
+  color:#FFFFFF;
+  background: linear-gradient(to right, #66c1ff,#0079cc)
+}
+.button-hover[type="primary"]{
+  color:#99d6ff;
+  background-color:#1aa3ff;
+}
+.container {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  padding-top: 50px;
+}
+
+.ql-container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow: auto;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid #ECECEC;
+  padding-bottom: 50px;
+}
+
+.ql-active {
+  color: #22C704;
+}
+
+.iconfont {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.toolbar {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ECECEC;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 50px;
+}
+.toolbar1 {
+  box-sizing: border-box;
+  padding: 0 10px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ECECEC;
+  border-left: none;
+  border-right: none;
+  font-size: 12px;
+}

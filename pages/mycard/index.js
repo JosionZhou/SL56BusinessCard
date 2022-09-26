@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCanEditCompanyProfile:false,
     imageHeight: 0,
     headImgWidth: 0,
     item: null,
@@ -88,7 +89,8 @@ Page({
             title: "我的名片"
           });
           main.setData({
-            addressStyle: "padding-right:0px;padding-bottom:0px"
+            addressStyle: "padding-right:0px;padding-bottom:0px",
+            isCanEditCompanyProfile:res.IsCanEditCompanyProfile
           });
         }
         main.setData({
@@ -277,5 +279,33 @@ Page({
         }
       }
     });
+  },
+  onEditorReady() {
+    const that = this
+    let editor=wx.createSelectorQuery().select('#editor');
+    console.log(editor)
+    wx.createSelectorQuery().select('#editor').context(function (res) {
+      console.log("editorCtx:",res);
+      that.editorCtx = res.context;
+      that.getCompanyProfile();
+    }).exec()
+  },
+  editProfile(){
+    wx.navigateTo({
+      url: '/pages/mycard/company-profile/edit',
+    })
+  },
+  getCompanyProfile(){
+    const that =this;
+    let data={
+      url:app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile",
+      method:"GET",
+      success:function(res){
+        that.editorCtx.setContents({
+          delta:JSON.parse(res)
+        });
+      }
+    } 
+    app.NetRequest(data);
   }
 })

@@ -42,20 +42,20 @@ App({
   },
   globalData: {
     userInfo: null,
-    // serverAddress: 'http://192.168.0.20:8033/api',
-    // authServerAddress: 'http://192.168.0.20:8032',
+    // serverAddress: 'http://192.168.0.30:8033/api',
+    // authServerAddress: 'http://192.168.0.30:8032',
     serverAddress: 'https://api.sl56.com/api',
     authServerAddress: 'https://www.sl56.com',
   },
-  NetRequest: function ({ url, data, success, fail, complete, method = "POST" }) {
+  NetRequest: function ({ url, data, success, fail, complete, method = "POST",contentType='application/x-www-form-urlencoded' }) {
 
     var session_id = wx.getStorageSync('ASPSESSID');//本地取存储的sessionID
     var auth = wx.getStorageSync('ASPAUTH');
     var header;
     if (session_id != null && session_id != "") {
-      header = { 'content-type': 'application/x-www-form-urlencoded', 'Cookie': 'ASP.NET_SessionId=' + session_id + ';sl56Auth=' + auth + ';OpenId=' + this.globalData.openId }
+      header = { 'content-type': contentType, 'Cookie': 'ASP.NET_SessionId=' + session_id + ';sl56Auth=' + auth + ';OpenId=' + this.globalData.openId }
     } else {
-      header = { 'content-type': 'application/x-www-form-urlencoded' }
+      header = { 'content-type': contentType }
     }
     this.globalData.header = header;
     wx.request({
