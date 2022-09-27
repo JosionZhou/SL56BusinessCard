@@ -285,6 +285,7 @@ Page({
     let editor=wx.createSelectorQuery().select('#editor');
     console.log(editor)
     wx.createSelectorQuery().select('#editor').context(function (res) {
+      if(res==null) return;
       console.log("editorCtx:",res);
       that.editorCtx = res.context;
       that.getCompanyProfile();

@@ -33,8 +33,7 @@ Page({
     this.setData({
       headImgWidth: headImgWidth,
       rightBoxWidth: wx.getSystemInfoSync().windowWidth - headImgWidth - 10,
-      cameraLeft: cameraLeft,
-      avatar: app.globalData.userInfo.avatarUrl
+      cameraLeft: cameraLeft
     });
     var data = {
       url: app.globalData.serverAddress + "/BusinessCard/GetData?id=" + app.globalData.id,
@@ -46,6 +45,7 @@ Page({
           nameWarning: res.Name == null || res.Name.length == 0,
           phoneWarning: res.Phone == null || res.Phone.length == 0,
           positionWarning: res.Position == null || res.Position.length == 0,
+          avatar:res.AvatarUrl,
           showPage:true
         });
       },
@@ -212,5 +212,23 @@ Page({
         })
       },
     })
-  }
+  },
+  refreshAvatar:function(){
+    let main=this;
+    wx.getUserProfile({
+      desc: 'desc',
+      success:function(res){
+        console.log(res.userInfo);
+        main.setData({
+         avatar : res.userInfo.avatarUrl
+        });
+      }
+    });
+  },
+  // onChooseAvatar(e) {
+  //   console.log(e.detail);
+  //   this.setData({
+  //     avatar:e.detail.avatarUrl
+  //   })
+  // }
 })

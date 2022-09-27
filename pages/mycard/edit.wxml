@@ -1,10 +1,12 @@
 <view class="page" hidden="{{!showPage}}">
   <form bindsubmit="save">
     <view class="page__bd">
+      <view style="font-size: 13px;">点击头像可以更新你的当前微信头像</view>
       <view style="position:relative;background-color:#ffffff;padding:10px 0px 0px 10px">
         <view style="float:left">
           <!-- bindtap="chooseAvatar" -->
-          <image src="{{avatar}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;border-radius:50px"></image>
+          <image src="{{avatar}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;border-radius:50px" bindtap="refreshAvatar"></image>
+          <!-- <button style="font-size: 12px;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">刷新</button> -->
           <view style="position:absolute;top:50%;left:{{cameraLeft}}px" hidden="true">
             <image src="/img/camera.png" style="width:25px;height:20px"></image>
           </view>
