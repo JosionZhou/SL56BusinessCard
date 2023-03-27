@@ -1,13 +1,14 @@
-// pages/mycard/edit.js
-var app = getApp()
+import FileHelper from '../../utils/FileHelper';
+var app = getApp();
+const fs = wx.getFileSystemManager();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    avatar: "/img/avatar.png",
-    address: "深圳宝安兴围鸿通物流城A区一栋",
+    showAddress: "",
+    showAvatarUrl:"",
     cameraLeft: 0,
     headImgWidth: 0,
     rightBoxWidth: 0,
@@ -16,8 +17,9 @@ Page({
     nameWarning: true,
     phoneWarning: true,
     positionWarning: true,
-    item: null,
-    showPage:false
+    titleWarning: true,
+    businessCardInfo: null,
+    showPage: false
   },
 
   /**
@@ -28,8 +30,9 @@ Page({
       title: "请稍后",
     });
     var main = this;
-    var headImgWidth = parseInt(wx.getSystemInfoSync().windowWidth * 0.2);
+    var headImgWidth = parseInt(wx.getSystemInfoSync().windowWidth * 0.15);
     var cameraLeft = parseInt(headImgWidth / 2) - 5;
+    this.FileHelper = new FileHelper();
     this.setData({
       headImgWidth: headImgWidth,
       rightBoxWidth: wx.getSystemInfoSync().windowWidth - headImgWidth - 10,
@@ -40,16 +43,20 @@ Page({
       method: "GET",
       success: function (res) {
         wx.hideLoading();
+        res.ShowAddress = res.Address.split("|")[0];
+        res.Latitude = res.Address.split("|")[1].split(",")[0];
+        res.Longitude = res.Address.split("|")[1].split(",")[1];
         main.setData({
-          item: res,
-          nameWarning: res.Name == null || res.Name.length == 0,
+          businessCardInfo: res,
+          nameWarning: res.ObjectName == null || res.ObjectName.length == 0,
           phoneWarning: res.Phone == null || res.Phone.length == 0,
-          positionWarning: res.Position == null || res.Position.length == 0,
-          avatar:res.AvatarUrl,
-          showPage:true
+          positionWarning: res.Post == null || res.Post.length == 0,
+          titleWarning: res.Title == null || res.Title.length == 0,
+          showPage: true
         });
+        main.loadAvatar(main);
       },
-      fail:function(res){
+      fail: function (res) {
         wx.hideLoading();
         wx.showModal({
           title: "获取用户数据失败",
@@ -59,54 +66,21 @@ Page({
     };
     app.NetRequest(data);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //加载头像，如果是微信头像则直接显示，如果是上传的图片，则先下载到本地再显示
+  loadAvatar:function(context){
+    if (context.data.businessCardInfo.AvatarUrl.indexOf("UploadFiles") != -1) {
+      let avatarUrl = context.data.businessCardInfo.AvatarUrl;
+      avatarUrl = avatarUrl.replaceAll("/", "%2F");
+      context.FileHelper.downloadFile(avatarUrl, function (res) {
+        context.setData({
+          showAvatarUrl: res.tempFilePath
+        });
+      });
+    }else{
+      context.setData({
+        showAvatarUrl:context.data.businessCardInfo.AvatarUrl,
+      });
+    }
   },
   next: function () {
     this.setData({
@@ -155,10 +129,21 @@ Page({
           });
         }
         break;
+      case "title":
+        if (value.trim().length > 0) {
+          this.setData({
+            titleWarning: false
+          });
+        } else {
+          this.setData({
+            titleWarning: true
+          });
+        }
+        break;
     }
   },
   save: function (e) {
-    var isValid = !this.data.nameWarning && !this.data.phoneWarning && !this.data.positionWarning;
+    var isValid = !this.data.nameWarning && !this.data.phoneWarning && !this.data.positionWarning && !this.data.titleWarning;
     if (!isValid) {
       wx.showModal({
         title: "警告",
@@ -170,65 +155,130 @@ Page({
     wx.showLoading({
       title: "请稍后",
     })
-    var obj = this.data.item;
+    var obj = this.data.businessCardInfo;
+    obj.ObjectName=e.detail.value.name;
     obj.Phone = e.detail.value.phone;
     obj.Position = e.detail.value.position;
     obj.Email = e.detail.value.email;
     obj.Brief = e.detail.value.brief;
-    obj.AvatarUrl = this.data.avatar;
-    obj.QQ = e.detail.value.qq;
-    obj.Wechat = e.detail.value.wechat;
+    obj.Post = e.detail.value.position;
+    obj.Profile = e.detail.value.brief;
+    // obj.QQ = e.detail.value.qq;
+    // obj.Wechat = e.detail.value.wechat;
     var data = {
       url: app.globalData.serverAddress + "/BusinessCard/Save",
       data: obj,
       success: function (res) {
         wx.hideLoading();
         if (res) {
-          wx.redirectTo({
-            url: "/pages/mycard/index",
+          wx.navigateBack({
+            delta: 0,
+            fail:function(res){//因为跳转到当前页面有两种方式，第一种是登录时检测到未设置名片信息，此时使用redirect跳转；第二种是主动编辑修改名片信息时，使用navigate跳转；所以使用navigateback返回失败时，使用redirect
+              wx.redirectTo({
+                url: '/pages/mycard/index',
+              });
+            }
           });
         } else {
           wx.showModal({
             title: "保存失败",
             content: "请重试",
-          })
+          });
         }
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: "保存失败",
+          content: res,
+        });
       }
     };
     app.NetRequest(data);
   },
   chooseAvatar: function () {
     var main = this;
-    wx.chooseImage({
-      count: 1,
+    wx.showActionSheet({
+      // itemList: [ '选择图片','获取微信头像'],
+      itemList: ['选择图片'],
       success: function (res) {
-        main.setData({
-          avatar: res.tempFilePaths[0]
-        });
-        wx.uploadFile({
-          url: '',
-          filePath: res.tempFilePaths[0],
-          name: '',
-        })
-      },
-    })
+        if (!res.cancel) {
+          if (res.tapIndex == 1) {
+            main.refreshAvatar();
+          } else {
+            wx.chooseImage({
+              count: 1,
+              success: function (res) {
+                let loaclFilePath = res.tempFilePaths[0]
+                fs.readFile({
+                  filePath: loaclFilePath,
+                  success(res) {
+                    main.FileHelper.uploadFile(loaclFilePath, function (data) {
+                      console.log("serverFilePath:", data);
+                      main.data.businessCardInfo.AvatarUrl = data;
+                      main.setData({
+                        showAvatarUrl:loaclFilePath
+                      });
+                    });
+                  }
+                });
+                wx.uploadFile({
+                  url: '',
+                  filePath: res.tempFilePaths[0],
+                  name: '',
+                })
+              },
+            });
+          }
+        }
+      }
+    });
   },
-  refreshAvatar:function(){
-    let main=this;
+  refreshAvatar: function () {
+    let main = this;
     wx.getUserProfile({
       desc: 'desc',
-      success:function(res){
-        console.log(res.userInfo);
+      success: function (res) {
+        main.data.businessCardInfo.AvatarUrl = res.userInfo.avatarUrl;
+        console.log(res.userInfo.avatarUrl);
         main.setData({
-         avatar : res.userInfo.avatarUrl
+          showAvatarUrl:res.userInfo.avatarUrl
         });
       }
     });
   },
-  // onChooseAvatar(e) {
-  //   console.log(e.detail);
-  //   this.setData({
-  //     avatar:e.detail.avatarUrl
-  //   })
-  // }
+  tapAddress: function () {
+    let main = this;
+    console.log("tap Address");
+    wx.chooseLocation({
+      latitude: main.data.businessCardInfo.Latitude,
+      longitude: main.data.businessCardInfo.Longitude,
+      success: res => {
+        let businessCardInfo = main.data.businessCardInfo;
+        businessCardInfo.Latitude = res.latitude;
+        businessCardInfo.Longitude = res.longitude;
+        businessCardInfo.Address = res.address + "|" + res.latitude + "," + res.longitude;
+        businessCardInfo.ShowAddress = res.address;
+        main.setData({
+          businessCardInfo: businessCardInfo
+        });
+      }
+    });
+  },
+  chooseCardType(){
+    let main=this;
+    wx.navigateTo({
+      url: './choose-card-type/index',
+      events:{
+        "apply":function(res){
+          console.log(res);
+          main.data.businessCardInfo.Format=res.type;
+          main.data.businessCardInfo.BackgroundImg=res.bgImage;
+          console.log(main.data.businessCardInfo);
+        }
+      },
+      success:function(res){
+        res.eventChannel.emit("editCardType",{type:main.data.businessCardInfo.Format,bgImage:main.data.businessCardInfo.BackgroundImg});
+      }
+    })
+  }
 })

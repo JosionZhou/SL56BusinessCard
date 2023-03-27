@@ -1,0 +1,2 @@
+<editor id="editor" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
+</editor>

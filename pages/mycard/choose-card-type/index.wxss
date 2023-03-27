@@ -1,0 +1,18 @@
+@import '../index.wxss';
+.style-box{
+  position: absolute;
+  /* margin-top: 50px; */
+  padding: 30px 20px;
+  border-radius: 20px;
+  width: -webkit-fill-available;
+  top: 45%;
+}
+button[type="primary"] {
+  color:#FFFFFF;
+  background: #3b7aff;
+  border-radius: 50px;
+}
+.button-hover[type="primary"]{
+  color:#99d6ff;
+  background-color:#1aa3ff;
+}

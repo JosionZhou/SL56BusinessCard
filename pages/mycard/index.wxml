@@ -1,18 +1,70 @@
-<view class="page" hidden="{{!showPage}}">
-  <view class="page__bd bg">
-    <view style="position: relative;text-align:center">
+<view class="page" hidden="{{!showPage}}" style="overflow-x: hidden;">
+  <view class="bg_view"></view>
+  <view class="page__bd">
+    <view class="card_type1" style="position: relative;text-align:center;" wx:if="{{item.Format==1}}">
+      <view class="weui-cells weui-cells_after-title info-box">
+        <image style="position: absolute;left: 0;top: 0;width: 100%;height: 100%;" src="/img/{{item.BackgroundImg}}_big.png" mode="scaleToFill"></image>
+        <view class="name weui-flex">
+          <view class="weui-flex__item card_inf">
+            {{item.ObjectName}}
+          </view>
+          <view class="avatar weui-flex__item">
+            <image src="{{showAvatarUrl}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;"></image>
+          </view>
+        </view>
+        <view class="weui-flex" style="align-items: baseline;">
+          <view class="weui-flex__item card_inf font_weight">
+            {{item.Post}}
+          </view>
+          <view class="weui-flex__item align_left font_weight">
+            {{companyName}}
+            <image class="smallImg" src="/img/attestation.png"></image>
+          </view>
+          <view class="weui-flex__item">
+          </view>
+        </view>
+
+        <view class="card_inf_sub">
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf">
+              电话：{{item.Phone}}
+            </view>
+          </view>
+
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf">
+              邮箱：{{item.Email}}
+            </view>
+          </view>
+
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf">
+              网址：WWW.SL56.COM
+            </view>
+          </view>
+
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf" bindtap="openMap">
+              地址：<label class="linkinfo" style="padding-left: 0;">{{item.ShowAddress}}</label>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view style="position: relative;text-align:center" wx:if="{{item.Format==2}}">
       <view>
         <!-- <image src="/img/bg.png" mode="scaleToFill" style="width:100%"></image> -->
       </view>
       <view>
-        <image src="{{item.AvatarUrl}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;border-radius:50px"></image>
+        <image src="{{showAvatarUrl}}" mode="aspectFill" style="width:{{headImgWidth}}px;height:{{headImgWidth}}px;border-radius:50px"></image>
       </view>
       <view class="name">
-        <text>{{item.Name}}</text>
+        <text>{{item.ObjectName}}</text>
       </view>
       <view style="width:100%;top:{{headImgWidth+40}}px">
         <view style="color:white;font-size:13px;text-align:center;">
-          <text>{{item.Department}} | {{item.Position}}</text>
+          <text>{{item.Post}} | {{companyName}}</text>
         </view>
       </view>
       <view class="weui-cells weui-cells_after-title info-box">
@@ -21,7 +73,7 @@
             <image src="/img/phone.png" style="width:20px;height:20px">
             </image>
           </view>
-          <view class="weui-cell__bd linkinfo" hover-class="hover" style="font-size:18px" bindtap="call">{{item.Phone}}</view>
+          <view class="weui-cell__bd normalinfo" hover-class="hover" style="font-size:18px">{{item.Phone}}</view>
         </view>
         <view class="weui-cell">
           <view class="weui-cell_hd">
@@ -49,29 +101,77 @@
             <image src="/img/position.png" mode="aspectFit" style="width:20px;height:20px">
             </image>
           </view>
-          <view class="weui-cell__bd linkinfo" hover-class="hover" bindtap="openMap">{{address}}</view>
-          <view class="weui-cell_ft" style="height:40px" wx:if="{{showEdit}}" bindtap="edit">
+          <view class="weui-cell__bd linkinfo" hover-class="hover" bindtap="openMap">{{item.ShowAddress}}</view>
+          <!-- <view class="weui-cell_ft" style="height:40px" wx:if="{{showEdit}}" bindtap="edit">
             <image src="/img/edit.png" style="width:40px;height:40px;text-align:right"></image>
-          </view>
+          </view> -->
         </view>
       </view>
     </view>
   </view>
 
+
+  <view class="weui-flex control_bar" style="position: relative;" wx:if="{{!showEdit}}">
+    <view class="weui-flex__item">
+      <view>
+        <button class="share" open-type="share">
+          <image src="/img/card_share.png" mode="widthFix"></image>
+          <view style="font-size: 14px;">推荐TA</view>
+        </button>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap="call">
+      <view>
+        <image src="/img/card_contact.png" mode="widthFix"></image>
+        <view>联系TA</view>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap="copyPhoneToWechatNumber">
+      <view>
+        <image src="/img/card_wechat.png" mode="widthFix"></image>
+        <view>加TA微信</view>
+      </view>
+    </view>
+    <view class="weui-flex__item" bindtap="openMap">
+      <view>
+        <image src="/img/card_position.png" mode="widthFix"></image>
+        <view>TA的位置</view>
+      </view>
+    </view>
+  </view>
+
   <view class="weui-btn-area" style="margin-top:100px" wx:if="{{showEdit}}">
+    <button class="weui-btn" type="primary" bindtap="edit" wx:if="{{showEdit}}">编辑</button>
     <button class="weui-btn" type="primary" open-type="share">发名片</button>
     <button class="weui-btn" type="primary" bindtap="unBind">切换账号</button>
-    <button class="weui-btn" type="primary" bindtap="editProfile" wx:if="{{isCanEditCompanyProfile}}">编辑公司简介</button>
+    <button class="weui-btn" type="primary" bindtap="editProfile" wx:if="{{item.IsCanEditCompanyProfile}}">编辑公司简介</button>
   </view>
-  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;"  wx:if="{{!showEdit}}">
-    <view>
+
+  <view style="position:relative;margin-top:20px;background-color:#ffffff;padding:5px;z-index: 1;" wx:if="{{!showEdit}}">
+    <view style="border-top: 1px solid #9E9E9E;padding-top:10px">
+      <view>
+        <image class="home_bottom_bg" src="/img/home_bottom_bg.png" style="z-index: -1;"></image>
+      </view>
+      <view>
+        <text style="font-weight: bold;padding-left: 10px;">关于深圳市升蓝物流有限公司</text>
+      </view>
+      <view>
+        <label class="linkinfo" bindtap="openLink">
+          <image src="/img/link_icon.png" style="width: 10px;height: 10px;"></image>
+          www.SL56.com
+        </label>
+        <image src="/img/hand_point_left.png" style="width: 15px;height: 15px;"></image>
+        <label style="font-size: 13px;">
+          点击进入
+        </label>
+      </view>
+      <view style="padding-left: 10px;font-size: 13px;">
+        我们致力于为客户提供高品质、高标准、高性价比的一站式智能国际物流解决方案。
+      </view>
       <view style="float:left;width:20%">
         <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px"></image>
       </view>
-      <view style="float:left;padding-left:20px;width:70%">
-        <view>
-          <text>深圳市升蓝物流有限公司</text>
-        </view>
+      <view style="float:left;padding-left:20px;width:70%;padding-top: 10px;">
         <view class="weui-flex" style="margin-top:5px">
           <view class="weui-flex__item">
             <view class="placeholder">国际快递</view>
@@ -86,45 +186,46 @@
             <view class="placeholder">国际空运</view>
           </view>
         </view>
-        <view class="weui-flex" style="margin-top:5px">
+        <view class="weui-flex" style="margin-top:10px">
           <view class="weui-flex__item">
             <view class="placeholder">101-200人</view>
           </view>
           <view class="weui-flex__item">
-            <view class="placeholder">亚马逊FBA</view>
+            <view class="placeholder">深圳知名品牌</view>
           </view>
           <view class="weui-flex__item">
-            <view class="placeholder">欧美专线</view>
+            <view class="placeholder">高新技术企业</view>
           </view>
         </view>
 
-        <view class="weui-flex" style="margin-top:5px">
+        <view class="weui-flex" style="margin-top:10px">
           <view class="weui-flex__item">
-            <view class="placeholder">ISO9001认证企业</view>
+            <view class="placeholder">航空业协会副会长单位</view>
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">国家AAAA级物流企业</view>
           </view>
         </view>
       </view>
-    </view>
-    <view style="clear:both"></view>
-    <editor id="editor" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
-    </editor>
-  </view>
-  <view class="weui-footer weui-footer_fixed-bottom" style="bottom:0;background-color:#ffffff;border-top:1rpx solid #d9d9d9" wx:if="{{!showEdit}}">
-    <view style="position:relative;">
-      <button class="share" style="float:left;padding:0px;margin:0px;" hover-class="shareHover" open-type="share">
-        <view style="position:relative;">
-          <view style="float:left;width:100%;height:25px">
-            <image src="/img/share.png" style="width:15px;height:15px"></image>
-          </view>
-          <view style="float:left;clear:right;width:100%;font-size:10px">分享名片</view>
-        </view>
-      </button>
-      <view style="float:right;padding:10px;">
-        <button type="primary" bindtap="saveContact" style="line-height:2.2;font-size:15px;width:120px">存入通讯录</button>
+      <view style="float: left;padding-left: 10px;font-size: 13px;">
+        升蓝物流始于2002年，一直专业定位于提供国际快递、国际空运、一般贸易报关、全球进口业务等国际物流服务的国家高新技术企业。
       </view>
     </view>
+
+    <view style="float: left;text-align: center;width: 100%;font-size: 13px;font-weight:bold;color: #0F40F5;margin-top: 10px;" bindtap="openCompanyProfile">
+      <label bindtap="openCompanyProfile">了解更多升蓝资讯 </label>
+      <image src="/img/pick_down.png" style="width: 20px;height: 20px;"></image>
+    </view>
+
+    <view style="text-align: center;margin-top: 10px;float: left; width: 100%;">
+      <label>升蓝期待与您携手合作</label>
+    </view>
+    <view style="text-align: center;margin-top: 10px;float: left; width: 100%;">
+      <label>END</label>
+    </view>
+    <view style="clear:both"></view>
+    <!-- <editor id="editor" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
+    </editor> -->
   </view>
+  <map id="map" hidden="true"></map>
 </view>

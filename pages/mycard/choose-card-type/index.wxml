@@ -1,0 +1,150 @@
+<view class="page">
+  <view class="bg_view"></view>
+  <view class="page__bd">
+    <view style="position: relative;text-align:center" wx:if="{{type==2}}">
+      <view>
+        <image src="../../../img/avatar.png" mode="aspectFill" style="width:50px;height:50px;border-radius:50px"></image>
+      </view>
+      <view class="name">
+        <text>名字</text>
+      </view>
+      <view style="width:100%;top:{{headImgWidth+40}}px">
+        <view style="color:white;font-size:13px;text-align:center;">
+          <text>职务 | 公司名</text>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title info-box">
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/phone.png" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo" hover-class="hover" style="font-size:18px" bindtap="call">1**********</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/email.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo">*****@xxx.com</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/qq.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo">*********</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/wechat.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd normalinfo">**********</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell_hd">
+            <image src="/img/position.png" mode="aspectFit" style="width:20px;height:20px">
+            </image>
+          </view>
+          <view class="weui-cell__bd linkinfo" hover-class="hover" bindtap="openMap">**省.**市</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card_type1" style="position: relative;text-align:center;" wx:if="{{type==1}}">
+      <view class="weui-cells weui-cells_after-title info-box">
+        <image style="position: absolute;left: 0;top: 0;width: 100%;height: 100%;" src="/img/cardbg{{bgType}}_big.png" mode="scaleToFill"></image>
+        <view class="name weui-flex">
+          <view class="weui-flex__item card_inf">
+            NAME
+          </view>
+          <view class="avatar weui-flex__item">
+            <image src="/img/avatar.png" mode="aspectFit" style="width: 30%;" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item card_inf">
+            职位
+          </view>
+          <view class="weui-flex__item align_left">
+            公司名称
+          </view>
+          <view class="weui-flex__item">
+          </view>
+          <view class="weui-flex__item">
+          </view>
+        </view>
+
+        <view class="card_inf_sub">
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf">
+              Mobile：1**********
+            </view>
+          </view>
+
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf">
+              Email：xxxx@xx.xxx
+            </view>
+          </view>
+
+          <view class="weui-flex">
+            <view class="weui-flex__item card_inf">
+              Address：**省.**市
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="info-box style-box">
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          选择版式
+        </view>
+        <view class="weui-flex__item">
+          <view style="position: relative;" data-type="1" bindtap="changeType">
+            <image src="../../../img/type_simple_selected.png" style="width: 80%;position: absolute;" mode="widthFix" wx:if="{{type==1}}"></image>
+            <image src="../../../img/type_simple.png" style="width: 80%;" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+          <view style="position: relative;" data-type="2" bindtap="changeType">
+            <image src="../../../img/type_simple_selected.png" style="width: 80%;position: absolute;" mode="widthFix" wx:if="{{type==2}}"></image>
+            <image src="../../../img/type_simple.png" style="width: 80%;" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+        </view>
+      </view>
+      <view class="weui-flex" style="padding-top:15px;border-top: solid 1px #e2e2e2;">
+        <view class="weui-flex__item">
+          选择背景
+        </view>
+        <view class="weui-flex__item">
+          <view style="position: relative;" data-type="0" bindtap="changeBg">
+            <image src="../../../img/type_simple_selected.png" style="width: 80%;position: absolute;" mode="widthFix" wx:if="{{bgType==0}}"></image>
+            <image src="../../../img/cardbg0.png" style="width: 80%;" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+          <view style="position: relative;" wx:if="{{type==1}}" data-type="1" bindtap="changeBg">
+            <image src="../../../img/type_simple_selected.png" style="width: 80%;position: absolute;" mode="widthFix" wx:if="{{bgType==1}}"></image>
+            <image src="../../../img/cardbg1.png" style="width: 80%;" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="weui-flex__item">
+          <view style="position: relative;" wx:if="{{type==1}}" data-type="2" bindtap="changeBg">
+            <image src="../../../img/type_simple_selected.png" style="width: 80%;position: absolute;" mode="widthFix" wx:if="{{bgType==2}}"></image>
+            <image src="../../../img/cardbg2.png" style="width: 80%;" mode="widthFix"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <view class="weui-footer weui-footer_fixed-bottom" style="margin:10%">
+      <button type="primary" bindtap="apply">应用</button>
+    </view>
+  </view>
+</view>

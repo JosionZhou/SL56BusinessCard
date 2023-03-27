@@ -46,10 +46,12 @@ class FileHelper {
    * 
    * @param {String} serverFilePath 服务器文件路径
    */
-  downloadFile(serverFilePath, callback) {
-    wx.showLoading({
-      title: '获取文件中...',
-    });
+  downloadFile(serverFilePath, callback, isHideLoading) {
+    if (!isHideLoading) {
+      wx.showLoading({
+        title: '获取文件中...',
+      });
+    }
     wx.downloadFile({
       header: this.app.globalData.header,
       url: this.app.globalData.serverAddress + "/File/Download?path=" + serverFilePath,

@@ -6,11 +6,13 @@
     "pages/index/index",
     "pages/home/index",
     "pages/map/index",
-    "pages/mycard/company-profile/edit"
+    "pages/mycard/company-profile/edit",
+    "pages/mycard/choose-card-type/index",
+    "pages/home/company-profile"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#014fa3",
+    "navigationBarBackgroundColor": "#2B64FF",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white"
   },

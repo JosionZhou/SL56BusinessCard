@@ -6,8 +6,8 @@
 }
 button[type="primary"] {
   color:#FFFFFF;
-  background: linear-gradient(to right, #66c1ff,#0079cc);
-  border-radius: 50px
+  background: #3b7aff;
+  border-radius: 50px;
 }
 .button-hover[type="primary"]{
   color:#99d6ff;
@@ -15,4 +15,32 @@ button[type="primary"] {
 }
 .weui-cell{
   font-size:16px
+}
+.bg_view{
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  background: #F2F2F2;
+  margin-top: 12px;
+  border-radius: 25px;
+}
+.page{
+  background-color: #2B64FF;
+}
+.info{
+  padding: 20px;
+}
+.mainInfo{
+  margin-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background: white;
+  border-radius: 20px;
+}
+.mainInfo button{
+  width: 80%;
+  margin-top: 10px;
+}
+.smallFont{
+  font-size: 14px;
 }

@@ -1,4 +1,4 @@
-// pages/mycard/index.js
+import FileHelper from '../../utils/FileHelper';
 var app = getApp();
 const updateManager = wx.getUpdateManager();
 Page({
@@ -7,11 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showAvatarUrl:"",
     isCanEditCompanyProfile:false,
     imageHeight: 0,
     headImgWidth: 0,
     item: null,
-    address: "深圳宝安兴围鸿通物流城A区一栋",
     companyName: "升蓝物流",
     title: "职位",
     images: [],
@@ -31,9 +31,10 @@ Page({
     wx.showLoading({
       title: "请稍后",
     })
+    this.FileHelper = new FileHelper();
     this.setData({
       imageHeight: parseInt(wx.getSystemInfoSync().windowWidth * 0.4),
-      headImgWidth: parseInt(wx.getSystemInfoSync().windowWidth * 0.2),
+      headImgWidth: parseInt(wx.getSystemInfoSync().windowWidth * 0.16),
       width: wx.getSystemInfoSync().windowWidth
     });
     var images = new Array();
@@ -73,16 +74,38 @@ Page({
       method: "GET",
       success: function (res) {
         wx.hideLoading();
+        //对旧版本分享的进行判断
+        if(!main.data.showEdit && res.ObjectId==null){
+          wx.showModal({
+            showCancel:false,
+            title:"提示",
+            content:"此名片信息已过期！",
+            success:function(res){
+              console.log("exit")
+              wx.exitMiniProgram();
+            }
+          });
+        }
+        if(res.ObjectId==null){
+          wx.redirectTo({
+            url: 'edit',
+          });
+          return;
+        }
         if (res.Email == null || res.Email.trim().length == 0) {
           res.Email = "暂无邮箱";
         }
+        res.ShowAddress = res.Address.split("|")[0];
+        res.Latitude = res.Address.split("|")[1].split(",")[0];
+        res.Longitude = res.Address.split("|")[1].split(",")[1];
         main.setData({
           item: res
         });
+        main.loadAvatar(main);
         console.log(res)
         if (!main.data.showEdit) {
           wx.setNavigationBarTitle({
-            title: res.Name + "的名片"
+            title: res.ObjectName + "的名片"
           });
         } else {
           wx.setNavigationBarTitle({
@@ -113,6 +136,22 @@ Page({
       }
     };
     app.NetRequest(data);
+  },
+  //加载头像，如果是微信头像则直接显示，如果是上传的图片，则先下载到本地再显示
+  loadAvatar:function(context){
+    if (context.data.item.AvatarUrl.indexOf("UploadFiles") != -1) {
+      let avatarUrl = context.data.item.AvatarUrl;
+      avatarUrl = avatarUrl.replaceAll("/", "%2F");
+      context.FileHelper.downloadFile(avatarUrl, function (res) {
+        context.setData({
+          showAvatarUrl: res.tempFilePath
+        });
+      },true);
+    }else{
+      context.setData({
+        showAvatarUrl:context.data.item.AvatarUrl,
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -186,8 +225,8 @@ Page({
    */
   onShareAppMessage: function (res) {
     return {
-      title: "升蓝物流-" + this.data.item.Name + "的名片，望惠存",
-      path: '/pages/mycard/index?id=' + this.data.item.Id,
+      title: this.data.item.Title ,
+      path: '/pages/mycard/index?id=' + this.data.item.EmployeeId,
       success: function (res) {
         // 转发成功
       },
@@ -197,9 +236,13 @@ Page({
     }
   },
   openMap: function () {
-    wx.navigateTo({
-      url: '/pages/map/index',
-    })
+    let main=this;
+    let mapContext = wx.createMapContext('map', this);
+    mapContext.openMapApp({
+      longitude: parseFloat(main.data.item.Longitude),
+      latitude: parseFloat(main.data.item.Latitude),
+      destination:"升蓝物流"
+    });
   },
   call: function () {
     wx.makePhoneCall({
@@ -308,5 +351,28 @@ Page({
       }
     } 
     app.NetRequest(data);
+  },
+  openLink(){
+    wx.navigateTo({
+      url: '/pages/home/index',
+    })
+  },
+  openCompanyProfile(){
+    wx.navigateTo({
+      url: '/pages/home/company-profile',
+    })
+  },
+  copyPhoneToWechatNumber(){
+    wx.setClipboardData({
+      data: this.data.item.Phone,
+      complete:function(res){
+        wx.hideToast();
+        wx.showToast({
+          icon:'none',
+          title: '号码已复制，请到添加好友界面粘贴搜索添加',
+          duration:3000
+        });
+      }
+    });
   }
 })
