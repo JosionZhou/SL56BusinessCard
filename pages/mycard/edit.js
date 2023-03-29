@@ -160,6 +160,7 @@ Page({
     obj.Phone = e.detail.value.phone;
     obj.Position = e.detail.value.position;
     obj.Email = e.detail.value.email;
+    obj.Title=e.detail.value.title;
     obj.Brief = e.detail.value.brief;
     obj.Post = e.detail.value.position;
     obj.Profile = e.detail.value.brief;

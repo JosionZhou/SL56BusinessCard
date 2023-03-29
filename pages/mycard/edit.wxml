@@ -62,7 +62,7 @@
               <view class="weui-label">名片标题</view>
             </view>
             <view class="weui-cell__bd ">
-              <input class="weui-input" value="{{businessCardInfo.Title}}" data-sign="title" name="position" placeholder="请输入标题(必填项)" bindinput="inputInfo" />
+              <input class="weui-input" value="{{businessCardInfo.Title}}" data-sign="title" name="title" placeholder="请输入标题(必填项)" bindinput="inputInfo" />
             </view>
             <view class="weui-cell__ft" wx:if="{{titleWarning}}">
               <icon type="warn" size="23" color="#E64340"></icon>

@@ -10,6 +10,9 @@
     "pages/mycard/choose-card-type/index",
     "pages/home/company-profile"
   ],
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2B64FF",

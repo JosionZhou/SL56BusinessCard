@@ -18,7 +18,7 @@
           </view>
           <view class="weui-flex__item align_left font_weight">
             {{companyName}}
-            <image class="smallImg" src="/img/attestation.png"></image>
+            <image class="smallImg" src="/img/attestation.png" style="position: absolute;padding-left: 5px;"></image>
           </view>
           <view class="weui-flex__item">
           </view>
@@ -116,7 +116,7 @@
       <view>
         <button class="share" open-type="share">
           <image src="/img/card_share.png" mode="widthFix"></image>
-          <view style="font-size: 14px;">推荐TA</view>
+          <view style="font-size: 14px;padding-top: 2px;">推荐TA</view>
         </button>
       </view>
     </view>
