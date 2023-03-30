@@ -1,5 +1,5 @@
 <view class="page" hidden="{{!showPage}}" style="overflow-x: hidden;">
-  <view class="bg_view"></view>
+  <view class="bg_view" style="height: {{bgViewHeight}}px;"></view>
   <view class="page__bd">
     <view class="card_type1" style="position: relative;text-align:center;" wx:if="{{item.Format==1}}">
       <view class="weui-cells weui-cells_after-title info-box">
@@ -45,7 +45,7 @@
 
           <view class="weui-flex">
             <view class="weui-flex__item card_inf" bindtap="openMap">
-              地址：<label class="linkinfo" style="padding-left: 0;">{{item.ShowAddress}}</label>
+              地址：<label class="linkinfo" style="padding-left: 0;font-size: unset;">{{item.ShowAddress}}</label>
             </view>
           </view>
         </view>
@@ -171,7 +171,7 @@
       <view style="float:left;width:20%">
         <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px"></image>
       </view>
-      <view style="float:left;padding-left:20px;width:70%;padding-top: 10px;">
+      <view style="float:right;padding-left:20px;width:75%;padding-top: 10px;">
         <view class="weui-flex" style="margin-top:5px">
           <view class="weui-flex__item">
             <view class="placeholder">国际快递</view>
@@ -197,7 +197,6 @@
             <view class="placeholder">高新技术企业</view>
           </view>
         </view>
-
         <view class="weui-flex" style="margin-top:10px">
           <view class="weui-flex__item">
             <view class="placeholder">航空业协会副会长单位</view>
@@ -213,8 +212,11 @@
     </view>
 
     <view style="float: left;text-align: center;width: 100%;font-size: 13px;font-weight:bold;color: #0F40F5;margin-top: 10px;" bindtap="openCompanyProfile">
-      <label bindtap="openCompanyProfile">了解更多升蓝资讯 </label>
-      <image src="/img/pick_down.png" style="width: 20px;height: 20px;"></image>
+      <label bindtap="openCompanyProfile" style="text-decoration:underline;">了解更多升蓝资讯 </label>
+      <image src="/img/hand_point_left.png" style="width: 15px;height: 15px;"></image>
+      <label style="font-size: 13px;color:black;">
+        点击进入
+      </label>
     </view>
 
     <view style="text-align: center;margin-top: 10px;float: left; width: 100%;">

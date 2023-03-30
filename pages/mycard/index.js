@@ -35,7 +35,8 @@ Page({
     this.setData({
       imageHeight: parseInt(wx.getSystemInfoSync().windowWidth * 0.4),
       headImgWidth: parseInt(wx.getSystemInfoSync().windowWidth * 0.16),
-      width: wx.getSystemInfoSync().windowWidth
+      width: wx.getSystemInfoSync().windowWidth,
+      bgViewHeight:wx.getSystemInfoSync().windowHeight-200
     });
     var images = new Array();
     var picIndexs = new Array(1, 0, 2, 5, 15, 3, 7, 16, 17, 18, 19, 8, 10, 11);
