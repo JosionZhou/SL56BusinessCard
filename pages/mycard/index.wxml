@@ -171,7 +171,7 @@
       <view style="float:left;width:20%">
         <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px"></image>
       </view>
-      <view style="float:right;padding-left:20px;width:75%;padding-top: 10px;">
+      <view style="float:right;width:70%;padding-top: 10px;">
         <view class="weui-flex" style="margin-top:5px">
           <view class="weui-flex__item">
             <view class="placeholder">国际快递</view>
