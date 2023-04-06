@@ -38,12 +38,6 @@
           </view>
 
           <view class="weui-flex">
-            <view class="weui-flex__item card_inf">
-              网址：WWW.SL56.COM
-            </view>
-          </view>
-
-          <view class="weui-flex">
             <view class="weui-flex__item card_inf" bindtap="openMap">
               地址：<label class="linkinfo" style="padding-left: 0;font-size: unset;">{{item.ShowAddress}}</label>
             </view>
@@ -165,7 +159,7 @@
           点击进入
         </label>
       </view>
-      <view style="padding-left: 10px;font-size: 13px;">
+      <view style="font-size: 13px;padding-left: 20px;padding-right:20px;">
         我们致力于为客户提供高品质、高标准、高性价比的一站式智能国际物流解决方案。
       </view>
       <view style="float:left;width:20%">
@@ -206,12 +200,12 @@
           </view>
         </view>
       </view>
-      <view style="float: left;padding-left: 10px;font-size: 13px;">
+      <view style="float: left;padding-left: 20px;padding-right:20px;font-size: 13px;">
         升蓝物流始于2002年，一直专业定位于提供国际快递、国际空运、一般贸易报关、全球进口业务等国际物流服务的国家高新技术企业。
       </view>
     </view>
 
-    <view style="float: left;text-align: center;width: 100%;font-size: 13px;font-weight:bold;color: #0F40F5;margin-top: 10px;" bindtap="openCompanyProfile">
+    <view style="float: left;text-align: center;width: 100%;font-size: 13px;font-weight:bold;color: #0F40F5;margin-top: 10px;">
       <label bindtap="openCompanyProfile" style="text-decoration:underline;">了解更多升蓝资讯 </label>
       <image src="/img/hand_point_left.png" style="width: 15px;height: 15px;"></image>
       <label style="font-size: 13px;color:black;">
