@@ -39,7 +39,7 @@
 
           <view class="weui-flex">
             <view class="weui-flex__item card_inf" bindtap="openMap">
-              地址：<label class="linkinfo" style="padding-left: 0;font-size: unset;">{{item.ShowAddress}}</label>
+              地址：{{item.ShowAddress}}
             </view>
           </view>
         </view>
@@ -159,7 +159,7 @@
           点击进入
         </label>
       </view>
-      <view style="font-size: 13px;padding-left: 20px;padding-right:20px;">
+      <view style="font-size: 13px;margin-left: 10px;margin-right: 10px;;padding-top: 10px;">
         我们致力于为客户提供高品质、高标准、高性价比的一站式智能国际物流解决方案。
       </view>
       <view style="float:left;width:20%">
@@ -200,7 +200,7 @@
           </view>
         </view>
       </view>
-      <view style="float: left;padding-left: 20px;padding-right:20px;font-size: 13px;">
+      <view style="float: left;font-size: 13px;margin-left: 10px;margin-right: 10px;">
         升蓝物流始于2002年，一直专业定位于提供国际快递、国际空运、一般贸易报关、全球进口业务等国际物流服务的国家高新技术企业。
       </view>
     </view>
@@ -213,12 +213,6 @@
       </label>
     </view>
 
-    <view style="text-align: center;margin-top: 10px;float: left; width: 100%;">
-      <label>升蓝期待与您携手合作</label>
-    </view>
-    <view style="text-align: center;margin-top: 10px;float: left; width: 100%;">
-      <label>END</label>
-    </view>
     <view style="clear:both"></view>
     <!-- <editor id="editor" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
     </editor> -->

@@ -1,7 +1,7 @@
 <view>
   <button class="weui-btn btn-submit" type="primary" bindtap="submit" style="position: fixed;margin-top:10px;width:100%;z-index: 999;">提交修改</button>
   <view class="container" style="height:{{editorHeight}}px;">
-    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady">
+    <editor id="editor" class="ql-container" placeholder="{{placeholder}}" bindstatuschange="onStatusChange" bindready="onEditorReady" show-img-resize="true" show-img-toolbar="true">
     </editor>
   </view>
 
