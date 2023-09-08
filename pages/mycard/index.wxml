@@ -129,7 +129,7 @@
     <view class="weui-flex__item" bindtap="openMap">
       <view>
         <image src="/img/card_position.png" mode="widthFix"></image>
-        <view>TA的位置</view>
+        <view>导航</view>
       </view>
     </view>
   </view>
@@ -163,7 +163,7 @@
         我们致力于为客户提供高品质、高标准、高性价比的一站式智能国际物流解决方案。
       </view>
       <view style="float:left;width:20%">
-        <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px"></image>
+        <image src="/img/logo.png" mode="aspectFit" style="width:80px;height:80px;margin:10px 10px;border-radius: 10px;box-shadow: 1px 1px 5px 2px #d8d6d6;"></image>
       </view>
       <view style="float:right;width:70%;padding-top: 10px;">
         <view class="weui-flex" style="margin-top:5px">
@@ -206,7 +206,7 @@
     </view>
 
     <view style="float: left;text-align: center;width: 100%;font-size: 13px;font-weight:bold;color: #0F40F5;margin-top: 10px;">
-      <label bindtap="openCompanyProfile" style="text-decoration:underline;">了解更多升蓝资讯 </label>
+      <label bindtap="openCompanyProfile" style="text-decoration:underline;">产品介绍 </label>
       <image src="/img/hand_point_left.png" style="width: 15px;height: 15px;"></image>
       <label style="font-size: 13px;color:black;">
         点击进入

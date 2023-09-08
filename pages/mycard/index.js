@@ -225,8 +225,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
+    console.log(this.data);
     return {
-      title: this.data.item.Title ,
+      title: this.data.item.ObjectName+"的名片" ,
       path: '/pages/mycard/index?id=' + this.data.item.EmployeeId,
       success: function (res) {
         // 转发成功
