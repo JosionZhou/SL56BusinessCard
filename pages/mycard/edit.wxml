@@ -79,6 +79,17 @@
               <icon type="warn" size="23" color="#E64340"></icon>
             </view>
           </view>
+          <view class="weui-cell weui-cell_input {{registeredResidenceWarning==true?'weui-cell_warn':''}}">
+            <view class="weui-cell__hd">
+              <view class="weui-label">户籍</view>
+            </view>
+            <view class="weui-cell__bd ">
+              <input class="weui-input" value="{{businessCardInfo.RegisteredResidence}}" data-sign="registeredResidence" name="registeredResidence" placeholder="请输入户籍地(必填项)" bindinput="inputInfo" />
+            </view>
+            <view class="weui-cell__ft" wx:if="{{registeredResidenceWarning}}">
+              <icon type="warn" size="23" color="#E64340"></icon>
+            </view>
+          </view>
           <!-- <view class="weui-cell weui-cell_input">
             <view class="weui-cell__hd">
               <view class="weui-label">QQ</view>

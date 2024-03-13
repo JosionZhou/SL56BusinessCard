@@ -8,19 +8,21 @@ Page({
     editorHeight: 300,
     keyboardHeight: 0,
     isIOS: false,
-    delta: null
+    delta: null,
+    profileIndex: 0
   },
   readOnlyChange() {
     this.setData({
       readOnly: !this.data.readOnly
     });
   },
-  onLoad() {
+  onLoad(options) {
     this.FileHelper = new FileHelper();
     const platform = wx.getSystemInfoSync().platform
     const isIOS = platform === 'ios'
     this.setData({
-      isIOS
+      isIOS,
+      profileIndex: options.index
     })
     const that = this
     this.updatePosition(0)
@@ -174,21 +176,21 @@ Page({
           success: function (res1) {
             if (res1.confirm) {
               let data = {
-                url: app.globalData.serverAddress + "/BusinessCard/SetCompanyProfile",
+                url: app.globalData.serverAddress + "/BusinessCard/SetCompanyProfile?index="+that.data.profileIndex,
                 contentType: "application/json",
                 data: res.delta,
                 success: function (res2) {
-                  if(res2.length>0){
+                  if (res2.length > 0) {
                     wx.showModal({
-                      showCancel:false,
-                      title:"保存失败",
-                      content:res2
+                      showCancel: false,
+                      title: "保存失败",
+                      content: res2
                     });
-                  }else{
+                  } else {
                     wx.showModal({
-                      showCancel:false,
-                      title:"提示",
-                      content:"保存成功"
+                      showCancel: false,
+                      title: "提示",
+                      content: "保存成功"
                     });
                   }
                 }
@@ -203,13 +205,15 @@ Page({
   getData() {
     const that = this;
     let data = {
-      url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile",
+      url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile?index=" + that.data.profileIndex,
       method: "GET",
       success: function (res) {
         console.log("Content:", res);
-        that.editorCtx.setContents({
-          delta: JSON.parse(res)
-        });
+        if (res != null && res.length>0) {
+          that.editorCtx.setContents({
+            delta: JSON.parse(res)
+          });
+        }
       }
     }
     app.NetRequest(data);

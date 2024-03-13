@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showAvatarUrl:"",
-    isCanEditCompanyProfile:false,
+    showAvatarUrl: "",
+    isCanEditCompanyProfile: false,
     imageHeight: 0,
     headImgWidth: 0,
     item: null,
@@ -36,7 +36,7 @@ Page({
       imageHeight: parseInt(wx.getSystemInfoSync().windowWidth * 0.4),
       headImgWidth: parseInt(wx.getSystemInfoSync().windowWidth * 0.16),
       width: wx.getSystemInfoSync().windowWidth,
-      bgViewHeight:wx.getSystemInfoSync().windowHeight-200
+      bgViewHeight: wx.getSystemInfoSync().windowHeight - 200
     });
     var images = new Array();
     var picIndexs = new Array(1, 0, 2, 5, 15, 3, 7, 16, 17, 18, 19, 8, 10, 11);
@@ -52,13 +52,13 @@ Page({
     });
     if (options.id != null) {
       this.setData({
-        id:options.id,
-        showEdit:false
+        id: options.id,
+        showEdit: false
       });
     } else {
       this.setData({
-        id:app.globalData.id,
-        showEdit:true
+        id: app.globalData.id,
+        showEdit: true
       });
     }
     // var id = options.id;
@@ -76,18 +76,18 @@ Page({
       success: function (res) {
         wx.hideLoading();
         //对旧版本分享的进行判断
-        if(!main.data.showEdit && res.ObjectId==null){
+        if (!main.data.showEdit && res.ObjectId == null) {
           wx.showModal({
-            showCancel:false,
-            title:"提示",
-            content:"此名片信息已过期！",
-            success:function(res){
+            showCancel: false,
+            title: "提示",
+            content: "此名片信息已过期！",
+            success: function (res) {
               console.log("exit")
               wx.exitMiniProgram();
             }
           });
         }
-        if(res.ObjectId==null){
+        if (res.ObjectId == null) {
           wx.redirectTo({
             url: 'edit',
           });
@@ -114,7 +114,7 @@ Page({
           });
           main.setData({
             addressStyle: "padding-right:0px;padding-bottom:0px",
-            isCanEditCompanyProfile:res.IsCanEditCompanyProfile
+            isCanEditCompanyProfile: res.IsCanEditCompanyProfile
           });
         }
         main.setData({
@@ -139,7 +139,7 @@ Page({
     app.NetRequest(data);
   },
   //加载头像，如果是微信头像则直接显示，如果是上传的图片，则先下载到本地再显示
-  loadAvatar:function(context){
+  loadAvatar: function (context) {
     if (context.data.item.AvatarUrl.indexOf("UploadFiles") != -1) {
       let avatarUrl = context.data.item.AvatarUrl;
       avatarUrl = avatarUrl.replaceAll("/", "%2F");
@@ -147,10 +147,10 @@ Page({
         context.setData({
           showAvatarUrl: res.tempFilePath
         });
-      },true);
-    }else{
+      }, true);
+    } else {
       context.setData({
-        showAvatarUrl:context.data.item.AvatarUrl,
+        showAvatarUrl: context.data.item.AvatarUrl,
       });
     }
   },
@@ -227,8 +227,8 @@ Page({
   onShareAppMessage: function (res) {
     console.log(this.data);
     return {
-      title: this.data.item.ObjectName+"的名片" ,
-      path: '/pages/mycard/index?id=' + this.data.item.EmployeeId,
+      title: "升蓝物流名片",
+      path: '/pages/home/company-profile?empId=' + this.data.item.EmployeeId,
       success: function (res) {
         // 转发成功
       },
@@ -238,12 +238,12 @@ Page({
     }
   },
   openMap: function () {
-    let main=this;
+    let main = this;
     let mapContext = wx.createMapContext('map', this);
     mapContext.openMapApp({
       longitude: parseFloat(main.data.item.Longitude),
       latitude: parseFloat(main.data.item.Latitude),
-      destination:"升蓝物流"
+      destination: "升蓝物流"
     });
   },
   call: function () {
@@ -327,52 +327,58 @@ Page({
   },
   onEditorReady() {
     const that = this
-    let editor=wx.createSelectorQuery().select('#editor');
+    let editor = wx.createSelectorQuery().select('#editor');
     console.log(editor)
     wx.createSelectorQuery().select('#editor').context(function (res) {
-      if(res==null) return;
-      console.log("editorCtx:",res);
+      if (res == null) return;
+      console.log("editorCtx:", res);
       that.editorCtx = res.context;
       that.getCompanyProfile();
     }).exec()
   },
-  editProfile(){
-    wx.navigateTo({
-      url: '/pages/mycard/company-profile/edit',
-    })
+  editProfile() {
+    wx.showActionSheet({
+      itemList: ["首页信息", "公司荣誉", "产品介绍", "公司优势", "企业介绍", "联系我们"],
+      success: function (res) {
+        console.log(res.tapIndex);
+        wx.navigateTo({
+          url: '/pages/mycard/company-profile/edit?index='+ (parseInt(res.tapIndex)+1),
+        })
+      }
+    });
   },
-  getCompanyProfile(){
-    const that =this;
-    let data={
-      url:app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile",
-      method:"GET",
-      success:function(res){
+  getCompanyProfile() {
+    const that = this;
+    let data = {
+      url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile",
+      method: "GET",
+      success: function (res) {
         that.editorCtx.setContents({
-          delta:JSON.parse(res)
+          delta: JSON.parse(res)
         });
       }
-    } 
+    }
     app.NetRequest(data);
   },
-  openLink(){
+  openLink() {
     wx.navigateTo({
       url: '/pages/home/index',
     })
   },
-  openCompanyProfile(){
+  openCompanyProfile() {
     wx.navigateTo({
       url: '/pages/home/company-profile',
     })
   },
-  copyPhoneToWechatNumber(){
+  copyPhoneToWechatNumber() {
     wx.setClipboardData({
       data: this.data.item.Phone,
-      complete:function(res){
+      complete: function (res) {
         wx.hideToast();
         wx.showToast({
-          icon:'none',
+          icon: 'none',
           title: '号码已复制，请到添加好友界面粘贴搜索添加',
-          duration:3000
+          duration: 3000
         });
       }
     });

@@ -6,9 +6,70 @@
   line-height: 1.5;
   overflow: auto;
   padding: 10px 10px 20px 10px;
-  padding-bottom: 50px;
+  min-height: 10px;
 }
-
+swiper-item{
+  overflow-y: auto;
+}
 .ql-active {
   color: #22C704;
+}
+.weui-flex__item{
+  margin-right:10px;
+  text-align: center
+}
+.control_bar{
+  font-size: 14px;
+}
+.control_bar image{
+  width: 40%;
+}
+.control_bar .weui-flex__item:hover{
+  background-color: #d9d9d9;
+  border-radius: 10px;
+}
+.share{
+  padding:0;
+  line-height: normal;
+  background:transparent;
+  background-color: transparent;
+  border-radius: 0px;
+}
+.share::after{
+  border: none
+}
+.info-card{
+  width:fit-content;
+  margin: auto;
+  margin-top: 50px;
+}
+.info-card .name{
+  font-size: 30px;
+}
+.info-card .line{ 
+  color: #f3f3f3;
+}
+.info-card .comeform{
+  color: #4e4e4e;
+}
+.info-card .company-name{
+  letter-spacing: 3px;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.image1{
+  margin-top: 50px;
+  text-align: center;
+}
+.bottom-bar{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: #ececec;
+  height: 60px;
+}
+navigator{
+  margin-top: 20%;
+  color: #5e5fa1;
+  text-decoration: underline;
 }

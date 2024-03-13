@@ -1,2 +1,92 @@
-<editor id="editor" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
-</editor>
+<swiper circular="true" indicatorDots="true" style="height: {{windowHeight}}px;" bindchange="swiperItemChange" model:current="{{current}}">
+  <swiper-item>
+    <view>
+      <editor id="editor1" class="ql-container" read-only="true" bindstatuschange="onStatusChange">
+      </editor>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <editor id="editor2" class="ql-container" read-only="true" bindstatuschange="onStatusChange">
+      </editor>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <editor id="editor3" class="ql-container" read-only="true" bindstatuschange="onStatusChange">
+      </editor>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <editor id="editor4" class="ql-container" read-only="true" bindstatuschange="onStatusChange">
+      </editor>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <editor id="editor5" class="ql-container" read-only="true" bindstatuschange="onStatusChange">
+      </editor>
+    </view>
+  </swiper-item>
+  <swiper-item>
+    <view>
+      <editor id="editor6" class="ql-container" read-only="true" bindstatuschange="onStatusChange" bindready="onEditorReady">
+      </editor>
+    </view>
+    <view class="weui-flex control_bar" style="position: relative;">
+      <view class="weui-flex__item">
+        <view>
+          <button class="share" open-type="share">
+            <image src="/img/card_share.png" mode="widthFix"></image>
+            <view style="font-size: 14px;padding-top: 2px;">推荐TA</view>
+          </button>
+        </view>
+      </view>
+      <view class="weui-flex__item" bindtap="call">
+        <view>
+          <image src="/img/card_contact.png" mode="widthFix"></image>
+          <view>联系TA</view>
+        </view>
+      </view>
+      <view class="weui-flex__item" bindtap="copyPhoneToWechatNumber">
+        <view>
+          <image src="/img/card_wechat.png" mode="widthFix"></image>
+          <view>加TA微信</view>
+        </view>
+      </view>
+      <view class="weui-flex__item" bindtap="openMap">
+        <view>
+          <image src="/img/card_position.png" mode="widthFix"></image>
+          <view>导航</view>
+        </view>
+      </view>
+    </view>
+    <view class="info-card">
+      <view>
+        <label class="name">{{name}}</label>
+        <label class="line">一一一</label>
+        <label class="comeform">{{registeredResidence}}</label>
+      </view>
+      <view>
+        <label>{{phone}}</label>
+      </view>
+      <view class="company-name">深圳市升蓝物流有限公司</view>
+      <view>深圳市宝安区福永街道宝安大道6042号</view>
+      <view>升蓝智慧港B栋</view>
+      <view>https://www.SL56.com</view>
+      <view>sales@SL56.com</view>
+    </view>
+    <view class="image1">
+      <image src="/img/img1.jpg"></image>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class="bottom-bar">
+      <view class="weui-flex">
+        <view class="weui-flex__item" wx:for="{{currentBarActions}}">
+          <navigator class="placeholder" data-index="{{item.index}}" bind:tap="changeCurrentSwiperItem">{{item.name}}</navigator>
+        </view>
+      </view>
+    </view>

@@ -36,8 +36,10 @@ App({
     console.log(options.scene);
     if (options.scene == 1007 || options.scene == 1008){
       this.globalData.showEdit=false;
+      this.globalData.showHomeButton=false;
     }else{
       this.globalData.showEdit = true;
+      this.globalData.showHomeButton=true;
     }
   },
   globalData: {

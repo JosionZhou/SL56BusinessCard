@@ -18,6 +18,7 @@ Page({
     phoneWarning: true,
     positionWarning: true,
     titleWarning: true,
+    registeredResidenceWarning:true,
     businessCardInfo: null,
     showPage: false
   },
@@ -52,6 +53,7 @@ Page({
           phoneWarning: res.Phone == null || res.Phone.length == 0,
           positionWarning: res.Post == null || res.Post.length == 0,
           titleWarning: res.Title == null || res.Title.length == 0,
+          registeredResidenceWarning:res.RegisteredResidence==null || res.RegisteredResidence.length==0,
           showPage: true
         });
         main.loadAvatar(main);
@@ -140,10 +142,21 @@ Page({
           });
         }
         break;
+        case "registeredResidence":
+          if (value.trim().length > 0) {
+            this.setData({
+              registeredResidenceWarning: false
+            });
+          } else {
+            this.setData({
+              registeredResidenceWarning: true
+            });
+          }
+          break;
     }
   },
   save: function (e) {
-    var isValid = !this.data.nameWarning && !this.data.phoneWarning && !this.data.positionWarning && !this.data.titleWarning;
+    var isValid = !this.data.nameWarning && !this.data.phoneWarning && !this.data.positionWarning && !this.data.titleWarning && !this.data.registeredResidenceWarning;
     if (!isValid) {
       wx.showModal({
         title: "警告",
@@ -164,6 +177,7 @@ Page({
     obj.Brief = e.detail.value.brief;
     obj.Post = e.detail.value.position;
     obj.Profile = e.detail.value.brief;
+    obj.RegisteredResidence=e.detail.value.registeredResidence;
     // obj.QQ = e.detail.value.qq;
     // obj.Wechat = e.detail.value.wechat;
     var data = {
