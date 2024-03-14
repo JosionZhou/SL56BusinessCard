@@ -12,9 +12,9 @@
   margin-top: 200px;
   border-radius: 20px;
 }
-.page{
+/* .page{
   background-color: #2B64FF;
-}
+} */
 .headimg{
   position: absolute;
   left:40%;
@@ -225,4 +225,13 @@ button[type="primary"] {
 .home_bottom_bg{
   position: absolute;
   width: 100%;
+}
+.name{
+  font-size: 30px;
+}
+.line{ 
+  color: #f3f3f3;
+}
+.comeform{
+  color: #4e4e4e;
 }

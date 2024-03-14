@@ -21,7 +21,8 @@ Page({
     id: null,
     width: 0,
     timestamp: new Date().getTime(),
-    establishYears: new Date().getFullYear() - 2002
+    establishYears: new Date().getFullYear() - 2002,
+    isShowActionButtons: true
   },
 
   /**
@@ -225,15 +226,27 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    console.log(this.data);
+    let that = this;
+    //分享功能获取截屏前，防止小屏幕手机把功能按钮也截屏，先隐藏功能按钮
+    that.setData({
+      isShowActionButtons: false
+    });
+    //由于分享不支持结果回调，自动500ms后自动把功能按钮设置为可见
+    setTimeout(() => {
+      that.setData({
+        isShowActionButtons: true
+      });
+    }, 500);
     return {
       title: "升蓝物流名片",
       path: '/pages/home/company-profile?empId=' + this.data.item.EmployeeId,
       success: function (res) {
         // 转发成功
+        //此回调不会被调用
       },
       fail: function (res) {
         // 转发失败
+        //此回调不会被调用
       }
     }
   },
@@ -342,7 +355,7 @@ Page({
       success: function (res) {
         console.log(res.tapIndex);
         wx.navigateTo({
-          url: '/pages/mycard/company-profile/edit?index='+ (parseInt(res.tapIndex)+1),
+          url: '/pages/mycard/company-profile/edit?index=' + (parseInt(res.tapIndex) + 1),
         })
       }
     });

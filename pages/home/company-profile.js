@@ -142,7 +142,7 @@ Page({
 
     return {
       title: "升蓝物流名片",
-      path: '/pages/home/company-profile?id=' + this.data.empId,
+      path: '/pages/home/company-profile?empId=' + this.data.empId,
       success: function (res) {
         // 转发成功
       },
