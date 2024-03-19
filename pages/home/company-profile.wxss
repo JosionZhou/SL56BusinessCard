@@ -20,9 +20,11 @@ swiper-item{
 }
 .control_bar{
   font-size: 14px;
+  margin-bottom: 100px;
 }
 .control_bar image{
   width: 40%;
+  margin-top: 20px;
 }
 .control_bar .weui-flex__item:hover{
   background-color: #d9d9d9;
@@ -41,7 +43,6 @@ swiper-item{
 .info-card{
   width:fit-content;
   margin: auto;
-  margin-top: 50px;
 }
 .info-card .name{
   font-size: 30px;
@@ -51,6 +52,10 @@ swiper-item{
 }
 .info-card .comeform{
   color: #4e4e4e;
+}
+.info-card .phone{
+  text-decoration: underline;
+  color: blue;
 }
 .info-card .company-name{
   letter-spacing: 3px;
@@ -65,8 +70,11 @@ swiper-item{
   position: absolute;
   bottom: 0px;
   width: 100%;
-  background: #ececec;
-  height: 60px;
+  background: #f8f8f8;
+  height: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #c3c3c3;
 }
 navigator{
   margin-top: 20%;

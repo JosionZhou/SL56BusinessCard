@@ -28,7 +28,8 @@ Page({
       index: 5
     }],
     currentBarActions: [],
-    profileCount: 6
+    profileCount: 6,
+    current: 0
   },
 
   /**
@@ -74,7 +75,7 @@ Page({
         that.setData({
           name: nameArray1.toString().replaceAll(",", ""),
           phone: phoneArray1.toString().replaceAll(",", ""),
-          registeredResidence:res.RegisteredResidence
+          registeredResidence: res.RegisteredResidence
         });
       },
       fail: function (err) {
@@ -139,9 +140,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    // this.setData({
+    //   current:0
+    // });
     return {
-      title: "升蓝物流名片",
+      title: this.data.name.replaceAll(" ", "") + "　" + this.data.registeredResidence,
       path: '/pages/home/company-profile?empId=' + this.data.empId,
       success: function (res) {
         // 转发成功
@@ -163,31 +166,31 @@ Page({
   },
   getCompanyProfile() {
     const that = this;
-    let data = {
-      url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfiles",
-      method: "GET",
-      success: function (res) {
-        // editorCtx.setContents({
-        //   delta:JSON.parse(res)
-        // });
-        console.log("Contents:", res);
-        for (let i = 1; i <= that.data.profileCount; i++) {
-          wx.createSelectorQuery().select('#editor'+i).context(function (editorRes) {
-            if (res == null) return;
-            console.log("editorCtx:", editorRes);
-            let contentStr = res["Content"+i];
-            if(i==1){
-              contentStr = contentStr.replaceAll("[名字]",that.data.name).replaceAll("[户籍]",that.data.registeredResidence);
-            }
-            let content = JSON.parse(contentStr);
-            editorRes.context.setContents({
-              delta:content
-            });
-          }).exec();
+    for (let i = 1; i <= that.data.profileCount; i++) {
+      let data = {
+        url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile?index=" + i,
+        method: "GET",
+        success: function (res) {
+          // editorCtx.setContents({
+          //   delta:JSON.parse(res)
+          // });
+          console.log("Contents:", res);
+            wx.createSelectorQuery().select('#editor' + i).context(function (editorRes) {
+              if (res == null) return;
+              console.log("editorCtx:", editorRes);
+              let contentStr = res;
+              if (i == 1) {
+                contentStr = contentStr.replaceAll("[名字]", that.data.name).replaceAll("[户籍]", that.data.registeredResidence);
+              }
+              let content = JSON.parse(contentStr);
+              editorRes.context.setContents({
+                delta: content
+              });
+            }).exec();
         }
       }
+      app.NetRequest(data);
     }
-    app.NetRequest(data);
   },
   swiperItemChange(event) {
     console.log(event);
@@ -195,9 +198,9 @@ Page({
     let current = event.detail.current;
     let title = that.data.titles[current];
     console.log("current:", current, ";title:", title);
-    wx.setNavigationBarTitle({
-      title: that.data.titles[current],
-    });
+    // wx.setNavigationBarTitle({
+    //   title: that.data.titles[current],
+    // });
     this.changeBottomBar(current);
   },
   changeCurrentSwiperItem(event) {
@@ -207,14 +210,14 @@ Page({
       current: current
     });
   },
-  call(){
+  call() {
     wx.makePhoneCall({
-      phoneNumber: this.data.phone.replaceAll(" ",""),
+      phoneNumber: this.data.phone.replaceAll(" ", ""),
     })
   },
   copyPhoneToWechatNumber() {
     wx.setClipboardData({
-      data: this.data.phone.replaceAll(" ",""),
+      data: this.data.phone.replaceAll(" ", ""),
       complete: function (res) {
         wx.hideToast();
         wx.showToast({

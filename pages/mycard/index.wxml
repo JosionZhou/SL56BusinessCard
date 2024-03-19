@@ -48,11 +48,11 @@
 
     <view style="margin: 10px;">
       <view style="text-align: center;">
-        <view>
+        <!-- <view>
           <label class="name">{{item.ObjectName}}</label>
           <label class="line">一一一</label>
           <label class="comeform">{{item.RegisteredResidence}}</label>
-        </view>
+        </view> -->
         <image src="/img/content1.jpg" mode="widthFix" style="width: 90%;"></image>
         <view>
           <label style="font-weight: bold;font-size:20px;">专注国际快递空运二十三年</label>

@@ -238,7 +238,7 @@ Page({
       });
     }, 500);
     return {
-      title: "升蓝物流名片",
+      title: this.data.item.ObjectName+"　"+this.data.item.RegisteredResidence,
       path: '/pages/home/company-profile?empId=' + this.data.item.EmployeeId,
       success: function (res) {
         // 转发成功
