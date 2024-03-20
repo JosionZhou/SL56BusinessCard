@@ -192,6 +192,7 @@ Page({
       });
     }
     this.getCardInfo();
+    this.getContent();
   },
 
   /**
@@ -238,7 +239,7 @@ Page({
       });
     }, 500);
     return {
-      title: this.data.item.ObjectName+"　"+this.data.item.RegisteredResidence,
+      title: "　" + "　" + this.data.item.ObjectName + "　" + "　" + "　" + this.data.item.Post,
       path: '/pages/home/company-profile?empId=' + this.data.item.EmployeeId,
       success: function (res) {
         // 转发成功
@@ -293,9 +294,26 @@ Page({
     })
   },
   edit: function () {
-    wx.navigateTo({
-      url: 'edit',
-    })
+    if (this.data.isCanEditCompanyProfile) {
+      wx.showActionSheet({
+        itemList: ["展示信息", "个人信息"],
+        success: function (res) {
+          if (res.tapIndex == 0) {
+            wx.navigateTo({
+              url: '/pages/mycard/company-profile/edit?index=0',
+            })
+          }else{
+            wx.navigateTo({
+              url: 'edit',
+            });
+          }
+        }
+      });
+    } else {
+      wx.navigateTo({
+        url: 'edit',
+      });
+    }
   },
   unBind: function () {
     wx.showModal({
@@ -395,5 +413,22 @@ Page({
         });
       }
     });
+  },
+  getContent() {
+    let data = {
+      url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile",
+      method: "GET",
+      success: function (res) {
+        wx.createSelectorQuery().select('#editor1').context(function (editorRes) {
+          if (res == null) return;
+          console.log("editorCtx:", editorRes);
+          let content = JSON.parse(res);
+          editorRes.context.setContents({
+            delta: content
+          });
+        }).exec();
+      }
+    }
+    app.NetRequest(data);
   }
 })

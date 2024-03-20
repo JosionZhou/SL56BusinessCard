@@ -176,7 +176,7 @@ Page({
           success: function (res1) {
             if (res1.confirm) {
               let data = {
-                url: app.globalData.serverAddress + "/BusinessCard/SetCompanyProfile?index="+that.data.profileIndex,
+                url: app.globalData.serverAddress + (that.data.profileIndex==0?"/BusinessCard/SetCompanyProfile" :("/BusinessCard/SetCompanyProfile?index="+that.data.profileIndex)),
                 contentType: "application/json",
                 data: res.delta,
                 success: function (res2) {
@@ -205,7 +205,7 @@ Page({
   getData() {
     const that = this;
     let data = {
-      url: app.globalData.serverAddress + "/BusinessCard/GetCompanyProfile?index=" + that.data.profileIndex,
+      url: app.globalData.serverAddress + (that.data.profileIndex==0?"/BusinessCard/GetCompanyProfile":("/BusinessCard/GetCompanyProfile?index=" + that.data.profileIndex)),
       method: "GET",
       success: function (res) {
         console.log("Content:", res);

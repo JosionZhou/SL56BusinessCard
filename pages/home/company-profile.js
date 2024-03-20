@@ -75,7 +75,8 @@ Page({
         that.setData({
           name: nameArray1.toString().replaceAll(",", ""),
           phone: phoneArray1.toString().replaceAll(",", ""),
-          registeredResidence: res.RegisteredResidence
+          registeredResidence: res.RegisteredResidence,
+          post:res.Post
         });
       },
       fail: function (err) {
@@ -144,7 +145,7 @@ Page({
     //   current:0
     // });
     return {
-      title: this.data.name.replaceAll(" ", "") + "　" + this.data.registeredResidence,
+      title: "　"+"　"+this.data.name.replaceAll(" ", "") + "　" +"　" +"　" + this.data.post,
       path: '/pages/home/company-profile?empId=' + this.data.empId,
       success: function (res) {
         // 转发成功
