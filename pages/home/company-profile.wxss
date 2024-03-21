@@ -67,7 +67,7 @@ swiper-item{
   text-align: center;
 }
 .bottom-bar{
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   width: 100%;
   background: #f8f8f8;
