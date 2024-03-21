@@ -37,9 +37,7 @@ Page({
    */
   onLoad(options) {
     let that = this;
-    let systemInfo = wx.getSystemInfoSync();
     this.setData({
-      windowHeight: systemInfo.windowHeight,
       empId: options.empId
       // empId: 112
     });
@@ -107,6 +105,11 @@ Page({
     // if(isShowHomeButton===false){
     //   wx.hideHomeButton();
     // }
+    
+    let systemInfo = wx.getSystemInfoSync();
+    this.setData({
+      windowHeight: systemInfo.windowHeight
+    });
   },
 
   /**

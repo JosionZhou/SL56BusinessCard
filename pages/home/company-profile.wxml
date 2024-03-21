@@ -1,4 +1,4 @@
-<swiper circular="true" style="height: {{windowHeight-70}}px;" bindchange="swiperItemChange" model:current="{{current}}">
+<swiper circular="true" style="height: {{windowHeight-90}}px;" bindchange="swiperItemChange" model:current="{{current}}">
   <swiper-item>
     <view>
       <editor id="editor1" class="ql-container" read-only="true" bindstatuschange="onStatusChange">
