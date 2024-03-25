@@ -125,41 +125,13 @@ Page({
     wx.chooseImage({
       count: 1,
       success: function (res) {
+        let imgUrl = 'data:image/png;base64,' + wx.arrayBufferToBase64(wx.getFileSystemManager().readFileSync(res.tempFilePaths[0]));
         that.editorCtx.insertImage({
-          src: res.tempFilePaths[0],
+          src: imgUrl,
           data: {
             id: id
           },
-          width: '100%',
-          success: function () {
-            console.log('insert image success')
-            that.FileHelper.uploadFile(res.tempFilePaths[0], function (path) {
-              that.editorCtx.getContents({
-                success: function (res) {
-                  console.log(res.delta);
-                  let ops = res.delta.ops;
-                  console.log("ops:", ops, ";length:", ops.length, ops[0].attributes);
-                  ops.forEach(element => {
-                    if (element.attributes != null) {
-                      //添加图片事件完成后，data-local 和 data-custom 的值都是 本地临时路径
-                      if (element.attributes["data-custom"] == "id=" + id) {
-                        //本地路径设置为空
-                        element.attributes["data-local"] = null;
-                        let splitPaths = path.split('\\\\');
-                        //显示路径改为服务器文件地址
-                        element.insert.image = app.globalData.serverAddress + "/BusinessCard/GetImage?p1=" + splitPaths[0] + "&p2=" + splitPaths[1] + "&p3=" + splitPaths[2] + "&p4=" + splitPaths[3] + "&p5=" + splitPaths[4];
-                      }
-                    }
-                  });
-                  that.data.delta = res.delta;
-                  that.editorCtx.setContents({
-                    delta: res.delta
-                  });
-                  console.log(JSON.stringify(res.delta));
-                }
-              });
-            })
-          }
+          width: '100%'
         })
       }
     })
