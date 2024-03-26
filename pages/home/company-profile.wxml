@@ -87,7 +87,7 @@
 <view class="bottom-bar">
       <view class="weui-flex">
         <view class="weui-flex__item"  wx:for="{{allBarActions}}">
-          <image src="/img/{{item.name}}LOGO{{current==item.index?'红':''}}.jpg" style="width: 100%;height: 60px;" mode="scaleToFill"  data-index="{{item.index}}" bind:tap="changeCurrentSwiperItem" ></image>
+          <image src="/img/menu{{item.index+1}}{{current==item.index?'_red':''}}.jpg" style="width: 100%;height: 60px;" mode="scaleToFill"  data-index="{{item.index}}" bind:tap="changeCurrentSwiperItem" ></image>
         </view>
       </view>
     </view>
