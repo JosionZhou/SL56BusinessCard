@@ -47,7 +47,7 @@
       <view>深圳市宝安区福永街道宝安大道6042号</view>
       <view>升蓝智慧港B栋</view>
       <view>https://www.SL56.com</view>
-      <view>sales@SL56.com</view>
+      <view>{{email}}</view>
     </view>
     <view class="image1">
       <image src="/img/img1.jpg"></image>

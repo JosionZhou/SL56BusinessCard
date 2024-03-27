@@ -73,6 +73,7 @@ Page({
         that.setData({
           name: nameArray1.toString().replaceAll(",", ""),
           phone: phoneArray1.toString().replaceAll(",", ""),
+          email: res.Email,
           registeredResidence: res.RegisteredResidence,
           post:res.Post
         });
